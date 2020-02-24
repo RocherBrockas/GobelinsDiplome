@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Prime31;
 using System;
+using GlobalTypes;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,12 +29,11 @@ public class PlayerController : MonoBehaviour
     public GameObject crossHair;
     public GameObject grabRange;
 
-
-
     //player ability toggles
     private bool canSlopesliding = true;
     private bool canGlide = true;
     private bool canWallJump = true;
+
 
     #region Getters and Setters
 
@@ -94,9 +94,19 @@ public class PlayerController : MonoBehaviour
     private float _currentGlideTimer;
     private BoxCollider2D _boxCollider;
     private PolygonCollider2D _grabZone;
+    private Vector3 _frontBottomCorner;
+    private Vector3 _backBottomCorner;
     private bool _canAirControl = true;
     [SerializeField]
     private GrabCollisionHandle _colliderGrapple;
+    public GroundType _groundType;
+    private GameObject _tempOneWayPlatform;
+    private GameObject _tempMovingPlatform;
+    private float _jumpPadAmout;
+    private float _tempMoveDirection;
+    private EffectorType _currentEffectorType = EffectorType.None;
+    private Vector3 _currentEffectorAdjustment = Vector3.zero;
+
 
     // Movement of the crosshair using Analog stick
     //Maybe improve with left stick and right stick priority
@@ -130,17 +140,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxis("Grab") > 0.5f)
         {
-            Debug.Log("Grab");
             _grabZone.enabled = true;
-            if ( _colliderGrapple.instance.getHadGrabbed() )
+            if (_colliderGrapple.instance.getHadGrabbed())
             {
+                _groundType = GroundType.None;
                 _GrappleDirection = _colliderGrapple.getPointTransform().position - transform.position;
                 _GrappleDirection = _GrappleDirection.normalized;
                 _canAirControl = false;
                 Debug.Log(_GrappleDirection);
                 StartCoroutine(GrappleControlLoss());
                 isJumping = true;
-                //Mettre un temps de pose préGrapin pour marquer le move.
+                //Mettre un temps de pose préGrapin pour marquer le move. Actually ok
                 _moveDirection.x = _GrappleDirection.x * grappleTractionStrength;
                 _moveDirection.y = _GrappleDirection.y * grappleTractionStrength;
             }
@@ -150,11 +160,95 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void GetGroundType()
+    {
+
+
+        //slope Management
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector3.up, 2f, layerMask);
+
+        if(!hit.collider)
+        {
+            _frontBottomCorner = new Vector3(transform.position.x + _boxCollider.size.x / 2, transform.position.y, 0);
+            _backBottomCorner = new Vector3(transform.position.x - _boxCollider.size.x / 2, transform.position.y, 0);
+            RaycastHit2D hitFrontFloor = Physics2D.Raycast(_frontBottomCorner, -Vector2.up, 2f,layerMask);
+            RaycastHit2D hitBackFloor = Physics2D.Raycast(_backBottomCorner, -Vector2.up, 2f,layerMask);
+            if (hitFrontFloor.collider && !hitBackFloor.collider)
+            {
+                hit = hitFrontFloor;
+            } else if (!hitFrontFloor.collider && hitBackFloor.collider)
+            {
+                hit = hitBackFloor;
+            }
+        }
+        if (hit)
+        {
+            _slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+            _slopeGradient = hit.normal;
+
+            if ((_slopeAngle > _characterController.slopeLimit) && canSlopesliding)
+            {
+                isSlopeSliding = true;
+            }
+            else
+            {
+                isSlopeSliding = false;
+            }
+
+            string layerName = LayerMask.LayerToName(hit.transform.gameObject.layer);
+            if (layerName == "OneWayPlatform" || layerName == "MovingPlatform")
+            {
+                _groundType = GroundType.OneWayPlatform;
+                if (!_tempOneWayPlatform)
+                {
+                    _tempOneWayPlatform = hit.transform.gameObject;
+                }
+                if (layerName == "MovingPlatform")
+                {
+                    _groundType = GroundType.MovingPlatform;
+
+                    if (!_tempMovingPlatform)
+                    {
+                        _tempMovingPlatform = hit.transform.gameObject;
+                        transform.SetParent(hit.transform);
+                    }
+                }
+            }
+            else if (layerName == "LevelGeometry")
+            {
+                _groundType = GroundType.LevelGeometry;
+            }
+            else if (layerName == "Collapsable")
+            {
+                _groundType = GroundType.Collapsable;
+                transform.SetParent(hit.transform);
+                StartCoroutine(
+                    DisablePlatform(hit.transform.gameObject.GetComponent<Collapsableplatform>().collapseStartUp,
+                    hit.transform.gameObject.GetComponent<Collapsableplatform>().reappearTime,
+                    hit.transform.gameObject));
+            }
+            else if (layerName == "JumpPad")
+            {
+                //to use for making bumpers
+                _groundType = GroundType.JumpPad;
+                _jumpPadAmout = hit.transform.gameObject.GetComponent<Jumpad>().jumpAmount;
+
+            }
+        }
+        else
+        {
+            _groundType = GroundType.None;
+        }
+        if (!_groundType.Equals(GroundType.MovingPlatform) || _groundType.Equals(GroundType.None))
+        {
+            transform.SetParent(null);
+            _tempMovingPlatform = null;
+        }
+    }
+
     private void MovementManager()
     {
 
-        //slope Management
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector3.up, 4f, layerMask);
         //if statemement to remove for interesting wall climb property
         if ((wallJumped == false) && _canAirControl)
         {
@@ -164,20 +258,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             _currentGlideTimer = glideTimer;
-            if (hit)
-            {
-                _slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                _slopeGradient = hit.normal;
 
-                if ((_slopeAngle > _characterController.slopeLimit) && canSlopesliding)
-                {
-                    isSlopeSliding = true;
-                }
-                else
-                {
-                    isSlopeSliding = false;
-                }
-            }
+            GetGroundType();
 
             if (_canAirControl)
             {
@@ -200,15 +282,42 @@ public class PlayerController : MonoBehaviour
             {
                 _moveDirection = new Vector3(_slopeGradient.x * slopeSlideSpeed, -_slopeGradient.y * slopeSlideSpeed, 0f);
             }
+            if(_groundType.Equals(GroundType.JumpPad))
+            {
+                if (Input.GetButton("Jump"))
+                {
+                    _moveDirection.y = _tempMoveDirection + _jumpPadAmout;
+                    _tempMoveDirection = _moveDirection.y / 2;
+                } else
+                {
+                    _tempMoveDirection = 0f;
+                    _moveDirection.y = _jumpPadAmout;
+                }
+            }
 
             if (Input.GetButtonDown("Jump"))
             {
-                _moveDirection.y = jumpSpeed;
+                if ((_groundType == GroundType.OneWayPlatform || _groundType == GroundType.MovingPlatform) && (Input.GetAxis("Vertical") < -0.1f))
+                {
+                    StartCoroutine(DisableOneWayPlatform());
+                }
+                else
+                {
+                    _moveDirection.y = jumpSpeed;
+                }
                 isJumping = true;
+                transform.SetParent(null);
+                _tempMovingPlatform = null;
+
             }
         }
         else //player is in the air
         {
+            //Dangereux
+            _groundType = GroundType.None;
+            //Attention
+
+
             if (Input.GetButtonUp("Jump") && _canAirControl)
             {
                 if (_moveDirection.y > 0)
@@ -298,6 +407,8 @@ public class PlayerController : MonoBehaviour
     {
         getAngleCrossHair();
         grabMangement();
+        if (!_currentEffectorType.Equals(EffectorType.None))
+            EffectorAdjustment();
         MovementManager();
     }
 
@@ -320,5 +431,87 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(grappleAirControlLoss);
         _canAirControl = true;
     }
+
+    IEnumerator DisableOneWayPlatform()
+    {
+        if (_tempOneWayPlatform)
+        {
+            _tempOneWayPlatform.GetComponent<EdgeCollider2D>().enabled = false;
+        }
+        yield return new WaitForSeconds(0.5f);
+        if (_tempOneWayPlatform)
+        {
+            _tempOneWayPlatform.GetComponent<EdgeCollider2D>().enabled = true;
+            _tempOneWayPlatform = null;
+        }
+    }
+
+    IEnumerator DisablePlatform(float collapseStartUp, float reappearTime, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(collapseStartUp);
+        gameObject.gameObject.SetActive(false);
+        yield return new WaitForSeconds(reappearTime);
+        gameObject.gameObject.SetActive(true);
+    }
     #endregion
+
+    private void EffectorAdjustment()
+    {
+        switch (_currentEffectorType)
+        {
+            case EffectorType.TractorBeam:
+                {
+                    //Freeze player Movement
+                    _moveDirection.y = _currentEffectorAdjustment.y;
+                    break;
+                }
+            case EffectorType.Ladder:
+                {
+                    //Not implemented because not useful regarding level design
+                    break;
+                }
+            case EffectorType.FloatZone:
+                {
+                    //More Movement Freedom
+                    _moveDirection += _currentEffectorAdjustment;
+                    break;  
+                }
+            default:
+                    break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_characterController.triggerMask == ( _characterController.triggerMask | (1 << collision.gameObject.layer)))
+        { 
+            string layerName = LayerMask.LayerToName(collision.gameObject.layer);
+            if (layerName == "Effector")
+            {
+                Effector effector = collision.gameObject.GetComponent<Effector>();
+                if (effector)
+                {
+                    _currentEffectorType = effector.effectorType;
+                    _currentEffectorAdjustment = effector.effectorAdjustmenent;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_characterController.triggerMask == (_characterController.triggerMask | (1 << collision.gameObject.layer)))
+        {
+            Debug.Log("stay");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_characterController.triggerMask == (_characterController.triggerMask | (1 << collision.gameObject.layer)))
+        {
+            _currentEffectorType =EffectorType.None;
+            _currentEffectorAdjustment = Vector3.zero;
+        }
+    }
 }

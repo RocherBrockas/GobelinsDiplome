@@ -17,11 +17,11 @@ TagManager:
   - Player
   - LevelGeometry
   - Grabbable
-  - 
-  - 
-  - 
-  - 
-  - 
+  - OneWayPlatform
+  - MovingPlatform
+  - Collapsable
+  - JumpPad
+  - Effector
   - 
   - 
   - 
