@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     //to pass private in the future
     public float grappleAirControlLoss = 0.7f;
 
-    public float crosshairDistance = 1.0f;
     public LayerMask layerMask;
 
     public GameObject crossHair;
@@ -81,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public bool wallJumped;
     public bool isSlopeSliding;
     public bool isGliding;
+    public bool isGrappling;
 
     #endregion
 
@@ -106,17 +106,22 @@ public class PlayerController : MonoBehaviour
     private float _tempMoveDirection;
     private EffectorType _currentEffectorType = EffectorType.None;
     private Vector3 _currentEffectorAdjustment = Vector3.zero;
-
+    //private Vector3 _crossHairMaxDistance = new Vector3(6.05f,0,0);
 
     // Movement of the crosshair using Analog stick
     //Maybe improve with left stick and right stick priority
     private void getAngleCrossHair()
     {
         float x = Input.GetAxis("Mouse X");
+
         float y = Input.GetAxis("Mouse Y");
         float aim_angle = 0.0f;
         // USED TO CHECK OUTPUT
         //Debug.Log(" horz: " + x + "   vert: " + y);
+        //Debug.Log(Mathf.Sqrt(Mathf.Pow(x, 2f) + Mathf.Pow(y, 2)));
+        //Debug.Log(Mathf.Abs(y) + Mathf.Abs(x)); Pas bon pour la position du reticule
+        //Debug.Log(crossHair.transform.position);
+
 
         // CANCEL ALL INPUT BELOW THIS FLOAT
         float R_analog_threshold = 0.20f;
@@ -130,8 +135,8 @@ public class PlayerController : MonoBehaviour
         {
 
             aim_angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
-
             // ANGLE GUN
+            //crossHair.transform.position = grabRange.transform.position + _crossHairMaxDistance * Mathf.Sqrt(Mathf.Pow(x, 2f) + Mathf.Pow(y, 2));
             grabRange.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
         }
     }
@@ -153,6 +158,7 @@ public class PlayerController : MonoBehaviour
                 //Mettre un temps de pose préGrapin pour marquer le move. Actually ok
                 _moveDirection.x = _GrappleDirection.x * grappleTractionStrength;
                 _moveDirection.y = _GrappleDirection.y * grappleTractionStrength;
+                isGrappling = true;
             }
             _colliderGrapple.instance.Reset();
             StartCoroutine(GrappleLaunched());
@@ -282,6 +288,15 @@ public class PlayerController : MonoBehaviour
             {
                 _moveDirection = new Vector3(_slopeGradient.x * slopeSlideSpeed, -_slopeGradient.y * slopeSlideSpeed, 0f);
             }
+
+            if (isGrappling && (Mathf.Abs(Input.GetAxis("Vertical")) < 0.5f))
+            {
+                //Wavedash  *w*
+                _moveDirection.x = grappleTractionStrength * (-1f)*(_moveDirection.x < 0 ? 1f : -1f);
+                _moveDirection.y = 0f;
+
+            }
+
             if(_groundType.Equals(GroundType.JumpPad))
             {
                 if (Input.GetButton("Jump"))
@@ -366,7 +381,7 @@ public class PlayerController : MonoBehaviour
             _moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (flags.left || flags.right)
+        if ((flags.left || flags.right) && !isGrounded) 
         {
             if (canWallJump)
             {
@@ -430,6 +445,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(grappleAirControlLoss);
         _canAirControl = true;
+        isGrappling = false;
     }
 
     IEnumerator DisableOneWayPlatform()

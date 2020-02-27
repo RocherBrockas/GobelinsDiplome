@@ -145,12 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e9214e4ffc5d244ac2e24ac0d8b350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 6
-  jumpSpeed: 16
+  walkSpeed: 8.55
+  jumpSpeed: 15
   gravity: 20
-  wallJumpXAmount: 0.5
-  wallJumpYAmount: 0.5
-  WJlostcontrolTime: 0
+  wallJumpXAmount: 0.8
+  wallJumpYAmount: 0.8
+  WJlostcontrolTime: 0.5
   slopeSlideSpeed: 4
   glideAmount: 2
   glideTimer: 2
@@ -160,17 +160,17 @@ MonoBehaviour:
   crosshairDistance: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 6656
+    m_Bits: 31232
   crossHair: {fileID: 6526024578880264086}
   grabRange: {fileID: 6526024579192670179}
-  isGrounded: 0
+  isGrounded: 1
   isJumping: 0
   isFacingRight: 1
   wallJumped: 0
   isSlopeSliding: 0
   isGliding: 0
   _colliderGrapple: {fileID: 6526024579192670111}
-  _groundType: 0
+  _groundType: 1
 --- !u!114 &6526024578276619040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,14 +187,14 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 31232
   triggerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32768
   oneWayPlatformMask:
     serializedVersion: 2
-    m_Bits: 6144
-  slopeLimit: 35
+    m_Bits: 14336
+  slopeLimit: 47
   jumpingThreshold: 0.07
   slopeSpeedMultiplier:
     serializedVersion: 2
@@ -229,8 +229,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  totalHorizontalRays: 8
-  totalVerticalRays: 4
+  totalHorizontalRays: 12
+  totalVerticalRays: 12
 --- !u!1 &6526024578880264086
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 6526024579192670111}
   m_Layer: 10
   m_Name: GrappleZone
-  m_TagString: grabZone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
