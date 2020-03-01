@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float glideTimer = 2f;
     public float grappleCooldown = 0.5f;
     public float grappleTractionStrength = 1.0f;
+    public float glideWaitTime = 0.7f;
 
     //to pass private in the future
     public float grappleAirControlLoss = 0.7f;
@@ -267,7 +268,7 @@ public class PlayerController : MonoBehaviour
 
             GetGroundType();
 
-            if (_canAirControl)
+            if (_canAirControl && !isGrappling)
             {
                 _moveDirection.y = 0;
             }
@@ -289,9 +290,10 @@ public class PlayerController : MonoBehaviour
                 _moveDirection = new Vector3(_slopeGradient.x * slopeSlideSpeed, -_slopeGradient.y * slopeSlideSpeed, 0f);
             }
 
-            if (isGrappling && (Mathf.Abs(Input.GetAxis("Vertical")) < 0.5f))
+            if (isGrappling && (_GrappleDirection.y < 0.4f))
             {
                 //Wavedash  *w*
+                Debug.Log("Wavedash");
                 _moveDirection.x = grappleTractionStrength * (-1f)*(_moveDirection.x < 0 ? 1f : -1f);
                 _moveDirection.y = 0f;
 
@@ -318,6 +320,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
+                    StartCoroutine(JumpWait());
                     _moveDirection.y = jumpSpeed;
                 }
                 isJumping = true;
@@ -343,7 +346,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //input a réarranger
-        if (canGlide && (Input.GetAxis("Vertical") > 0.2f) && _characterController.velocity.y < 0.2f)
+        if (canGlide && (Input.GetButton("Jump")) && _characterController.velocity.y < 0.2f)
         {
             if (_currentGlideTimer > 0f)
             {
@@ -381,10 +384,11 @@ public class PlayerController : MonoBehaviour
             _moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if ((flags.left || flags.right) && !isGrounded) 
+        if ((flags.left || flags.right) && !isGrounded && (Mathf.Abs(_moveDirection.y) >0.05f)) 
         {
             if (canWallJump)
             {
+                canGlide = false;
                 if (Input.GetButtonDown("Jump") && !wallJumped && !isGrounded)
                 {
                     if (_moveDirection.x < 0)
@@ -431,8 +435,17 @@ public class PlayerController : MonoBehaviour
     IEnumerator WallJumpWaiter()
     {
         wallJumped = true;
+        canGlide = false;
         yield return new WaitForSeconds(WJlostcontrolTime);
         wallJumped = false;
+        canGlide = true;
+    }
+
+    IEnumerator JumpWait()
+    {
+        canGlide = false;
+        yield return new WaitForSeconds(glideWaitTime);
+        canGlide = true;
     }
 
     IEnumerator GrappleLaunched()
@@ -443,6 +456,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GrappleControlLoss()
     {
+        //a voir si on garde le glide pdt le grappin, perso je trouve ca marrant comme tech avancée
         yield return new WaitForSeconds(grappleAirControlLoss);
         _canAirControl = true;
         isGrappling = false;
