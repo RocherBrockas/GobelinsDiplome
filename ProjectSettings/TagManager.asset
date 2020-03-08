@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - grabZone
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,14 +13,14 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - LevelGeometry
-  - Grabbable
-  - OneWayPlatform
-  - MovingPlatform
-  - Collapsable
-  - JumpPad
-  - Effector
+  - Static Environment
+  - Moving Platforms
+  - PerceptionGiveZone
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
