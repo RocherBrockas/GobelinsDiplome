@@ -16,6 +16,7 @@ public class Perception : ScriptableObject
     public Color c;
 
     public float inspireCooldown;
+    public float expireCooldown;
 
     public float groundSpeed;
     public float acceleration;
@@ -29,7 +30,7 @@ public class Perception : ScriptableObject
     public float fastFallGravity;
     public float jumpHeigth;
     public float extraJumpHeigth;
-    public float numberOfAirJumps;
+    public int numberOfAirJumps;
 
     //Slopes ?
     public bool enableWallJump;

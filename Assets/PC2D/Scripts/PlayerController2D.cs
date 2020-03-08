@@ -12,9 +12,9 @@ public class PlayerController2D : MonoBehaviour
     private bool _enableOneWayPlatforms;
     private bool _oneWayPlatformsAreWalls;
     private bool _canInspire = true;
-
     public PerceptionManager perceptionManager;
     public GameObject inspireRange;
+    public GameObject expireRange;
 
     // Use this for initialization
     void Start()
@@ -122,7 +122,11 @@ public class PlayerController2D : MonoBehaviour
 
         if (Input.GetButtonDown(PC2D.Input.POOF))
         {
-            //_motor.Dash();
+            if (_canInspire)
+            {
+                expireRange.SetActive(true);
+                StartCoroutine(ExpireCooldown());
+            }
         }
 
         if (Input.GetButtonDown(PC2D.Input.INSPIRE))
@@ -149,6 +153,14 @@ public class PlayerController2D : MonoBehaviour
                 _motor.AbilityChange(perceptionManager.perception);
             }
         }
+    }
+
+    IEnumerator ExpireCooldown()
+    {
+        _canInspire = false;
+        yield return new WaitForSeconds(perceptionManager.perception.expireCooldown);
+        expireRange.SetActive(false);
+        _canInspire = true;
     }
 
     IEnumerator InspireCooldown()

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   c: {r: 0.9333334, g: 0.7568628, b: 0.22352943, a: 0}
   inspireCooldown: 1
+  expireCooldown: 0.5
   groundSpeed: 4.05
   acceleration: 0.2
   groundStopDistance: 0
@@ -26,8 +27,8 @@ MonoBehaviour:
   fastFallGravity: 4
   jumpHeigth: 1.25
   extraJumpHeigth: 1.25
-  numberOfAirJumps: 1
-  enableWallJump: 0
-  enableWallStick: 0
-  enableWallSlide: 0
+  numberOfAirJumps: 0
+  enableWallJump: 1
+  enableWallStick: 1
+  enableWallSlide: 1
   enableDash: 0

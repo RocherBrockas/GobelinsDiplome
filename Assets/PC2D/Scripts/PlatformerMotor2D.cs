@@ -3490,6 +3490,7 @@ public class PlatformerMotor2D : MonoBehaviour
             fastFallGravityMultiplier = perception.fastFallGravity;
             jumpHeight = perception.jumpHeigth;
             extraJumpHeight = perception.extraJumpHeigth;
+            numOfAirJumps = perception.numberOfAirJumps;
             enableWallJumps = perception.enableWallJump;
             enableWallSticks = perception.enableWallStick;
             enableWallSlides = perception.enableWallSlide;
