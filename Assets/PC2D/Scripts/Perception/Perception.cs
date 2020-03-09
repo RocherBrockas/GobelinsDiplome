@@ -8,8 +8,6 @@ using PC2D;
 [System.Serializable]
 public class Perception : ScriptableObject
 {
-
-
     PerceptionTypes perception;
 
     //placeholder
@@ -42,6 +40,4 @@ public class Perception : ScriptableObject
     public bool enableWallStick;
     public bool enableWallSlide;
     public bool enableDash;
-
-
 }

@@ -135,7 +135,7 @@ public class PlayerController2D : MonoBehaviour
             {
                 inspireRange.SetActive(true);
                 StartCoroutine(InspireCooldown());
-                Debug.Log(inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception);
+                //Debug.Log(inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception);
 
             }
 
@@ -175,7 +175,7 @@ public class PlayerController2D : MonoBehaviour
             if (inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception != null && (perceptionManager.perception != inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception))
             {
                 perceptionManager.perception = inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception;
-                Debug.Log(perceptionManager.perception);
+                //Debug.Log(perceptionManager.perception);
                 _motor.AbilityChange(perceptionManager.perception);
                 inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception = false;
             }

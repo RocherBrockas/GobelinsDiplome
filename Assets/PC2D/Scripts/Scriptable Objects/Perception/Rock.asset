@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: 
   c: {r: 0.9333334, g: 0.7568628, b: 0.22352943, a: 0}
-  perceptionType: 0
+  perceptionType: 1
   inspireCooldown: 1
   expireCooldown: 0.5
   expireRange: 0

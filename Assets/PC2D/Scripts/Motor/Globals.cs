@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System;
 namespace PC2D
 {
     public class Input
@@ -19,8 +19,11 @@ namespace PC2D
         Death
     }
 
+
     public class Globals
     {
+        public static int PerceptionTotalNumber = Enum.GetNames(typeof(PerceptionTypes)).Length;
+
         // Input threshold in order to take effect. Arbitarily set.
         public const float INPUT_THRESHOLD = 0.5f;
         public const float FAST_FALL_THRESHOLD = 0.5f;
