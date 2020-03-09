@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 11400002}
   - component: {fileID: 11400000}
   - component: {fileID: 11405038}
+  - component: {fileID: 2111306091}
+  - component: {fileID: 2111306086}
   m_Layer: 0
   m_Name: Basic Player Controller
   m_TagString: Untagged
@@ -85,14 +87,14 @@ MonoBehaviour:
   oneWayPlatformsAreWalls: 1
   movingPlatformLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  additionalRaycastsPerSide: 0
+    m_Bits: 512
+  additionalRaycastsPerSide: 2
   groundSpeed: 8
-  timeToGroundSpeed: 0.1
+  timeToGroundSpeed: 0
   groundStopDistance: 0.333
   airSpeed: 5
   changeDirectionInAir: 1
-  timeToAirSpeed: 0.2
+  timeToAirSpeed: 0
   airStopDistance: 2
   fallSpeed: 16
   gravityMultiplier: 2
@@ -148,9 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee1224ee819bd6418867d9a5171806d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perceptionManager: {fileID: 0}
-  inspireRange: {fileID: 0}
-  expireRange: {fileID: 0}
+  perceptionManager: {fileID: 2111306086}
+  inspireRange: {fileID: 6939726079757364531}
+  expireRange: {fileID: 4653842595052395101}
 --- !u!114 &11405038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpRotationSpeed: 540
   visualChild: {fileID: 173962}
+--- !u!50 &2111306091
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &2111306086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06414d64236d1e4bb232f34f10b682e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perception: {fileID: 11400000, guid: 655abf653700ea34898655c09b8fa9a1, type: 2}
+  sprite: {fileID: 21239396}
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  enablePoof: 1
+  enableInspire: 1
+  canPoof: 0
+  canInspire: 0
 --- !u!1 &173962
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +322,7 @@ GameObject:
   - component: {fileID: 4598006421175267116}
   - component: {fileID: 5956015510442330350}
   - component: {fileID: 3177746069887082774}
+  - component: {fileID: 702844103}
   m_Layer: 0
   m_Name: Expire Range
   m_TagString: Untagged
@@ -294,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 4653842595052395101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 41.500294, y: 41.500294, z: 41.500294}
+  m_LocalScale: {x: 0.28836, y: 0.28836, z: 0.28836}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 2
@@ -373,7 +418,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4653842595052395101}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -386,6 +431,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &702844103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653842595052395101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df3fc939245af24bb6e4ee5874034c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  maxScaleRange: 1
 --- !u!1 &6939726079757364531
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +459,7 @@ GameObject:
   - component: {fileID: 2902233089994962851}
   - component: {fileID: 116390426410133511}
   - component: {fileID: 8829950814192142407}
+  - component: {fileID: 1504735554}
   m_Layer: 0
   m_Name: Inspiration Range
   m_TagString: Untagged
@@ -493,7 +555,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6939726079757364531}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -506,3 +568,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1504735554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939726079757364531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3804277a9680e4995465f393ad750c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectedPerception: 0
+  feltPerception: {fileID: 0}
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 1024

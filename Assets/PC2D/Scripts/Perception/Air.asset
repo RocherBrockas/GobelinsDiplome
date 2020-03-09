@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Air
   m_EditorClassIdentifier: 
   c: {r: 0.22352943, g: 0.9333334, b: 0.92549026, a: 0}
+  perceptionType: 0
   inspireCooldown: 0.5
   expireCooldown: 0.5
+  expireRange: 0
+  poofDuration: 25.39
+  poofCharge: 0
   groundSpeed: 16.38
   acceleration: 0
   groundStopDistance: 0.333

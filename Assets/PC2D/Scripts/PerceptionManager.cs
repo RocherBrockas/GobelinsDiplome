@@ -5,6 +5,8 @@ using PC2D;
 
 public class PerceptionManager : MonoBehaviour
 {
+    public static PerceptionManager instance;
+
     public Perception perception;
     public SpriteRenderer sprite;
 
@@ -20,4 +22,14 @@ public class PerceptionManager : MonoBehaviour
     public bool canPoof;
     public bool canInspire;
 
+    private void Awake()
+    {
+        if (instance)
+        {
+            Debug.Log("Instance already created");
+        } else
+        {
+            instance = this;
+        }
+    }
 }

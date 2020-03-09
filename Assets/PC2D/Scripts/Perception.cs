@@ -15,8 +15,13 @@ public class Perception : ScriptableObject
     //placeholder
     public Color c;
 
+    public PerceptionTypes perceptionType;
+
     public float inspireCooldown;
     public float expireCooldown;
+    public float expireRange;
+    public float poofDuration;
+    public float poofCharge;
 
     public float groundSpeed;
     public float acceleration;

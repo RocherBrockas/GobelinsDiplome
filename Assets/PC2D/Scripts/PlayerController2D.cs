@@ -158,8 +158,10 @@ public class PlayerController2D : MonoBehaviour
     IEnumerator ExpireCooldown()
     {
         _canInspire = false;
+        expireRange.GetComponent<PoofRange>().AnimatePoof();
         yield return new WaitForSeconds(perceptionManager.perception.expireCooldown);
         expireRange.SetActive(false);
+        expireRange.GetComponent<PoofRange>().ResetComponents();
         _canInspire = true;
     }
 
@@ -183,20 +185,10 @@ public class PlayerController2D : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
-        //if (perceptionManager.triggerMask == (perceptionManager.triggerMask | (1 << collision.gameObject.layer)))
-        //{
-
-        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
-        //if (perceptionManager.triggerMask == (perceptionManager.triggerMask | (1 << collision.gameObject.layer)))
-        //{
-
-        //}
     }
 
     private void Awake()

@@ -17,7 +17,6 @@ public class inspireCollisionTrigger : MonoBehaviour
             if (collision.gameObject.GetComponent<PerceptionZone>().perception != null)
             {
                 detectedPerception = true;
-                Debug.Log("here");
                 feltPerception = collision.gameObject.GetComponent<PerceptionZone>().perception;
             } else
             {
