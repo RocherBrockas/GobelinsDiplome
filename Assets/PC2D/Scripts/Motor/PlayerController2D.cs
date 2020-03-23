@@ -15,6 +15,7 @@ public class PlayerController2D : MonoBehaviour
     public PerceptionManager perceptionManager;
     public GameObject inspireRange;
     public GameObject expireRange;
+    public LayerMask waterMask;
 
     // Use this for initialization
     void Start()
@@ -124,6 +125,7 @@ public class PlayerController2D : MonoBehaviour
         {
             if (_canInspire)
             {
+                expireRange.transform.position = this.transform.position;
                 expireRange.SetActive(true);
                 StartCoroutine(ExpireCooldown());
             }
@@ -153,6 +155,11 @@ public class PlayerController2D : MonoBehaviour
                 _motor.AbilityChange(perceptionManager.perception);
             }
         }
+        if (waterMask == (waterMask | ( 1 << collision.gameObject.layer)))
+        {
+            _motor.isInWater = true;
+        }
+
     }
 
     IEnumerator ExpireCooldown()
@@ -161,7 +168,10 @@ public class PlayerController2D : MonoBehaviour
         expireRange.GetComponent<PoofRange>().AnimatePoof();
         yield return new WaitForSeconds(perceptionManager.perception.expireCooldown);
         expireRange.SetActive(false);
-        expireRange.GetComponent<PoofRange>().ResetComponents();
+        expireRange.transform.position = this.transform.position;
+        expireRange.transform.SetParent(this.transform);
+        expireRange.GetComponent<PoofRange>().ResetComponents();    
+        
         _canInspire = true;
     }
 
@@ -189,6 +199,10 @@ public class PlayerController2D : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (waterMask == (waterMask | (1 << collision.gameObject.layer)))
+        {
+            _motor.isInWater = false;
+        }
     }
 
     private void Awake()

@@ -17,10 +17,7 @@ public class PerceptionManager : MonoBehaviour
 
     public bool enablePoof = true;
     public bool enableInspire = true;
-
-
-    public bool canPoof;
-    public bool canInspire;
+    public bool canInspire = true;
 
     private void Awake()
     {

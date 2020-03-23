@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlatformerMotor2D : MonoBehaviour
 {
+    public bool isInWater;
+
     /// <summary>
     /// The static environment check mask. This should only be environment that doesn't move.
     /// </summary>

@@ -8,6 +8,9 @@ public class PoofRange : MonoBehaviour
     public LayerMask triggerMask;
     public float maxScaleRange;
     private Vector3 originalScale;
+    private Vector3 originalPos;
+
+    private SimpleRigidBodyHandle collided;
 
     public void ResetComponents()
     {
@@ -16,38 +19,29 @@ public class PoofRange : MonoBehaviour
 
     public void AnimatePoof()
     {
-
+        this.transform.SetParent(null);
         StartCoroutine(ScaleOverTime(PerceptionManager.instance.perception.poofDuration));
-        // Gerer les cas des différents poofs
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    string layerName = LayerMask.LayerToName(collision.gameObject.layer);
-    //    if (triggerMask == (triggerMask | (1 << collision.gameObject.layer)))
-    //    {
-    //        if (collision.gameObject.GetComponent<PerceptionZone>().perception != null)
-    //        {
-
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Perception Inspirée Nulle");
-    //        }
-    //    }
-    //}
 
     IEnumerator ScaleOverTime(float time)
     {
         float currentTime = 0.0f;
         Vector3 destinationScale = new Vector3(maxScaleRange, maxScaleRange, maxScaleRange);
-      
+
         do
         {
             this.transform.localScale += Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
             yield return null;
         } while (currentTime <= time);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (triggerMask == (triggerMask | (1 << collision.gameObject.layer)))
+        {
+            Debug.Log("Check");
+        }
     }
 
     private void Awake()

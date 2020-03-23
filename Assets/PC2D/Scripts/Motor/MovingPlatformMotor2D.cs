@@ -16,6 +16,8 @@ public class MovingPlatformMotor2D : MonoBehaviour
     }
     public System.Action<PlatformerMotor2D> onPlatformerMotorContact;
 
+    public bool needReset;
+
     private bool _velocitySet;
     private Vector2 _velocity;
 

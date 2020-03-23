@@ -16,7 +16,8 @@ namespace PC2D
     {
         Air,
         Rock,
-        Death
+        Death,
+        None
     }
 
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0eb2073821c7c445922c9d843cee35f, type: 3}
-  m_Name: Air
+  m_Name: Air(Water)
   m_EditorClassIdentifier: 
   c: {r: 0.22352943, g: 0.9333334, b: 0.92549026, a: 0}
   perceptionType: 0
@@ -25,8 +25,8 @@ MonoBehaviour:
   airSpeed: 12
   airAcceleration: 0
   airStopDistance: 2
-  fallSpeed: 16
-  gravityMultiplier: 2
+  fallSpeed: -1
+  gravityMultiplier: 0.5
   fastFallSpeed: 32
   fastFallGravity: 4
   jumpHeigth: 1.5
