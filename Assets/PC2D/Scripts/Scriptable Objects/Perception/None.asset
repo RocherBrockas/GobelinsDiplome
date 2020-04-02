@@ -10,29 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0eb2073821c7c445922c9d843cee35f, type: 3}
-  m_Name: Rock
+  m_Name: None
   m_EditorClassIdentifier: 
-  c: {r: 0.9333334, g: 0.7568628, b: 0.22352943, a: 0}
-  perceptionType: 1
-  inspireCooldown: 1
-  expireCooldown: 5
+  c: {r: 0, g: 0, b: 0, a: 0}
+  perceptionType: 3
+  inspireCooldown: 0
+  expireCooldown: 0
   expireRange: 0
-  poofDuration: 0.5
+  poofDuration: 0
   poofCharge: 0
-  groundSpeed: 4.05
-  acceleration: 0.2
-  groundStopDistance: 0
-  airSpeed: 4
+  canInspire: 0
+  groundSpeed: 8
+  acceleration: 0.35
+  groundStopDistance: 0.7
+  airSpeed: 6
   airAcceleration: 0
-  airStopDistance: 3
-  fallSpeed: 25.07
-  gravityMultiplier: 4.5
+  airStopDistance: 2
+  fallSpeed: 16
+  gravityMultiplier: 5
   fastFallSpeed: 32
-  fastFallGravity: 5.99
-  jumpHeigth: 1.25
-  extraJumpHeigth: 1.25
+  fastFallGravity: 4
+  jumpHeigth: 2
+  extraJumpHeigth: 0
   numberOfAirJumps: 0
-  enableWallJump: 1
-  enableWallStick: 1
-  enableWallSlide: 1
+  enableWallJump: 0
+  enableWallStick: 0
+  enableWallSlide: 0
   enableDash: 0

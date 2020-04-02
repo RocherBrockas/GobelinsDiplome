@@ -19,17 +19,18 @@ MonoBehaviour:
   expireRange: 0
   poofDuration: 0
   poofCharge: 0
-  groundSpeed: 0
-  acceleration: 0
-  groundStopDistance: 0
-  airSpeed: 0
+  canInspire: 0
+  groundSpeed: 8
+  acceleration: 0.35
+  groundStopDistance: 0.7
+  airSpeed: 6
   airAcceleration: 0
-  airStopDistance: 0
-  fallSpeed: 0
-  gravityMultiplier: 0
-  fastFallSpeed: 0
-  fastFallGravity: 0
-  jumpHeigth: 0
+  airStopDistance: 2
+  fallSpeed: 16
+  gravityMultiplier: 2
+  fastFallSpeed: 32
+  fastFallGravity: 4
+  jumpHeigth: 2.5
   extraJumpHeigth: 0
   numberOfAirJumps: 0
   enableWallJump: 0

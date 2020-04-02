@@ -19,8 +19,15 @@ public class PoofRange : MonoBehaviour
 
     public void AnimatePoof()
     {
-        this.transform.SetParent(null);
-        StartCoroutine(ScaleOverTime(PerceptionManager.instance.perception.poofDuration));
+        if (PerceptionManager.instance.perception.perceptionType != PerceptionTypes.Death)
+        {
+            this.transform.SetParent(null);
+            StartCoroutine(ScaleOverTime(PerceptionManager.instance.perception.poofDuration));
+        } else
+        {
+            GetComponentInParent<PlayerController2D>().transform.position = PerceptionManager.instance.activeTotem.transform.position;
+        }
+
     }
 
     IEnumerator ScaleOverTime(float time)

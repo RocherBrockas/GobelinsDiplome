@@ -21,6 +21,9 @@ public class Perception : ScriptableObject
     public float poofDuration;
     public float poofCharge;
 
+    //Faire le systeme de respawn aux petits totems.
+    public bool canInspire;
+
     public float groundSpeed;
     public float acceleration;
     public float groundStopDistance;

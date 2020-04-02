@@ -6,6 +6,7 @@ using PC2D;
 public class PerceptionManager : MonoBehaviour
 {
     public static PerceptionManager instance;
+    public Totem activeTotem;
 
     public Perception perception;
     public SpriteRenderer sprite;

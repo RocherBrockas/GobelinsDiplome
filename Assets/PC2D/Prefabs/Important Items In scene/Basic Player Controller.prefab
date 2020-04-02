@@ -77,9 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d522286c13b9ff41b33ba3ff16074d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInWater: 0
   staticEnvLayerMask:
     serializedVersion: 2
-    m_Bits: 4352
+    m_Bits: 12544
   envCheckDistance: 0.08
   minDistanceFromEnv: 0.04
   numOfIterations: 2
@@ -153,6 +154,10 @@ MonoBehaviour:
   perceptionManager: {fileID: 2111306086}
   inspireRange: {fileID: 6939726079757364531}
   expireRange: {fileID: 4653842595052395101}
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  startingPosition: {fileID: 11400000, guid: f450e431be8b7b84699eb5297d25258c, type: 2}
 --- !u!114 &11405038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06414d64236d1e4bb232f34f10b682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeTotem: {fileID: 0}
   perception: {fileID: 11400000, guid: 655abf653700ea34898655c09b8fa9a1, type: 2}
   sprite: {fileID: 21239396}
   triggerMask:
@@ -207,7 +213,6 @@ MonoBehaviour:
     m_Bits: 1024
   enablePoof: 1
   enableInspire: 1
-  canPoof: 0
   canInspire: 0
 --- !u!1 &173962
 GameObject:
@@ -324,7 +329,7 @@ GameObject:
   - component: {fileID: 5956015510442330350}
   - component: {fileID: 3177746069887082774}
   - component: {fileID: 702844103}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Expire Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   maxScaleRange: 1
 --- !u!1 &6939726079757364531
 GameObject:
@@ -461,7 +466,7 @@ GameObject:
   - component: {fileID: 116390426410133511}
   - component: {fileID: 8829950814192142407}
   - component: {fileID: 1504735554}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Inspiration Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

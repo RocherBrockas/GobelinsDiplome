@@ -10,11 +10,18 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     public LayerMask expirationMask;
     private Vector3 originPosition;
     public bool isMovingPlatform;
+    public bool isBubble;
     private PerceptionTypes currentPoofPerception = PerceptionTypes.None;
 
     public void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        if (GetComponent<Rigidbody2D>() != null)
+        {
+            rigidbody = GetComponent<Rigidbody2D>();
+        } else
+        {
+            rigidbody = GetComponentInParent<Rigidbody2D>();
+        }
         originPosition = GetComponent<Transform>().position;
     }
 
@@ -24,11 +31,18 @@ public class SimpleRigidBodyHandle : MonoBehaviour
         {
             if (expirationMask == (expirationMask | (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == onlyInteractiveOnPerception)
             {
+                currentPoofPerception = onlyInteractiveOnPerception;
                 if (isMovingPlatform)
                 {
-                    rigidbody.bodyType = RigidbodyType2D.Dynamic;
-                    GetComponent<MovingPlatformMotor2D>().enabled = false;
-                    currentPoofPerception = onlyInteractiveOnPerception;
+                    if (GetComponent<MovingPlatformMotor2D>() != null )
+                    {
+                        rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                        GetComponent<MovingPlatformMotor2D>().enabled = false;
+                    }
+                }
+                else if (isBubble)
+                {
+                    GetComponentInParent<Bulle>().goDown = true;
                 }
             }
         }
@@ -38,10 +52,13 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     {
         if (expirationMask == (expirationMask | (1 << collision.gameObject.layer)) && currentPoofPerception == onlyInteractiveOnPerception)
         {
-            rigidbody.velocity = Vector2.zero;
-            GetComponent<MovingPlatformMotor2D>().enabled = true;
-            rigidbody.bodyType = RigidbodyType2D.Kinematic;
-            GetComponent<MovingPlatformMotor2D>().needReset = true;
+            if (isMovingPlatform)
+            {
+                rigidbody.velocity = Vector2.zero;
+                GetComponent<MovingPlatformMotor2D>().enabled = true;
+                rigidbody.bodyType = RigidbodyType2D.Kinematic;
+                GetComponent<MovingPlatformMotor2D>().needReset = true;
+            } 
         }
     }
 

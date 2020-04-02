@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0eb2073821c7c445922c9d843cee35f, type: 3}
-  m_Name: Rock(Water)
+  m_Name: Melancolie
   m_EditorClassIdentifier: 
   c: {r: 0.9333334, g: 0.7568628, b: 0.22352943, a: 0}
   perceptionType: 1
@@ -19,17 +19,18 @@ MonoBehaviour:
   expireRange: 0
   poofDuration: 0.5
   poofCharge: 0
-  groundSpeed: 6.08
-  acceleration: 0.2
-  groundStopDistance: 0
-  airSpeed: 4
+  canInspire: 0
+  groundSpeed: 5
+  acceleration: 0.5
+  groundStopDistance: 0.05
+  airSpeed: 4.5
   airAcceleration: 0
   airStopDistance: 3
-  fallSpeed: 10.93
-  gravityMultiplier: 1.2
+  fallSpeed: 25.07
+  gravityMultiplier: 4.5
   fastFallSpeed: 32
-  fastFallGravity: 3.35
-  jumpHeigth: 1.73
+  fastFallGravity: 5.99
+  jumpHeigth: 1.25
   extraJumpHeigth: 1.25
   numberOfAirJumps: 0
   enableWallJump: 1

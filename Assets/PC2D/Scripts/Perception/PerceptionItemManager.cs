@@ -47,7 +47,7 @@ public class PerceptionItemManager : MonoBehaviour
             {
                 if (_currentPlayerPerception.perceptionType == dep.perception)
                 {
-                    Debug.Log(g.name + " " + dep.name + " current dependance perception: " + dep.perception + "  current player perception :"+ _currentPlayerPerception);
+                    //Debug.Log(g.name + " " + dep.name + " current dependance perception: " + dep.perception + "  current player perception :"+ _currentPlayerPerception);
                     g.SetActive(dep.active);
                 } 
             }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using PC2D;
 
-public class PerceptionZone : MonoBehaviour
+[CreateAssetMenu]
+public class LoadPositions : ScriptableObject
 {
+    public Vector2 initialValue;
     public Perception perception;
-    public bool canBeInspired;
 }

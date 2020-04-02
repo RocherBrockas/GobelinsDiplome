@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 /// <summary>
 /// This class is a simple example of how to build a controller that interacts with PlatformerMotor2D.
 /// </summary>
@@ -16,12 +17,33 @@ public class PlayerController2D : MonoBehaviour
     public GameObject inspireRange;
     public GameObject expireRange;
     public LayerMask waterMask;
+    public bool isInBubble;
+    private Bulle _bubble;
+    public LoadPositions startingPosition;
+
+    public void Setbubble(Bulle bulle)
+    {
+        _bubble = bulle;
+        _motor.velocity = Vector2.zero;
+        _motor.frozen = true;
+    }
+
+    public void JumpOutOfBubble()
+    {
+        _motor.frozen = false;
+        _motor.ForceJump();
+        _bubble.Pop();
+        _bubble = null;
+    }
 
     // Use this for initialization
     void Start()
     {
+        this.transform.position = startingPosition.initialValue;
+        PerceptionManager.instance.perception = startingPosition.perception;
         _motor = GetComponent<PlatformerMotor2D>();
         perceptionManager = GetComponent<PerceptionManager>();
+        _motor.AbilityChange(perceptionManager.perception);
     }
 
     // before enter en freedom state for ladders
@@ -59,8 +81,16 @@ public class PlayerController2D : MonoBehaviour
         // If you want to jump in ladders, leave it here, otherwise move it down
         if (Input.GetButtonDown(PC2D.Input.JUMP))
         {
-            _motor.Jump();
+            if (isInBubble)
+            {
+                JumpOutOfBubble();
+            }
+            else
+            {
+                _motor.Jump();
+            }
             _motor.DisableRestrictedArea();
+
         }
 
         _motor.jumpingHeld = Input.GetButton(PC2D.Input.JUMP);
@@ -75,7 +105,7 @@ public class PlayerController2D : MonoBehaviour
         }
 
         // X axis movement
-        if (Mathf.Abs(Input.GetAxis(PC2D.Input.HORIZONTAL)) > PC2D.Globals.INPUT_THRESHOLD)
+        if ((Mathf.Abs(Input.GetAxis(PC2D.Input.HORIZONTAL)) > PC2D.Globals.INPUT_THRESHOLD) && !isInBubble)
         {
             _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
         }
@@ -152,6 +182,10 @@ public class PlayerController2D : MonoBehaviour
            if (perceptionManager.perception != collision.gameObject.GetComponent<PerceptionZone>().perception)
             {
                 perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
+                if (collision.gameObject.GetComponent<Totem>() != null)
+                {
+                    PerceptionManager.instance.activeTotem = collision.gameObject.GetComponent<Totem>();
+                }
                 _motor.AbilityChange(perceptionManager.perception);
             }
         }

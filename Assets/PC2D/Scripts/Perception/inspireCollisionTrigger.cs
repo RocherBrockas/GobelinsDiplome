@@ -14,7 +14,7 @@ public class inspireCollisionTrigger : MonoBehaviour
         if (triggerMask == (triggerMask | (1 << collision.gameObject.layer)))
         {
             
-            if (collision.gameObject.GetComponent<PerceptionZone>().perception != null)
+            if (collision.gameObject.GetComponent<PerceptionZone>().perception != null && collision.gameObject.GetComponent<PerceptionZone>().canBeInspired)
             {
                 detectedPerception = true;
                 feltPerception = collision.gameObject.GetComponent<PerceptionZone>().perception;
