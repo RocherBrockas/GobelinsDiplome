@@ -27,18 +27,9 @@ public class CracheBulle : MonoBehaviour
             GameObject currentBulle = Instantiate(bulle);
             currentBulle.transform.position = this.transform.position;
             currentBulle.GetComponent<Bulle>().isDestroyable = true;
-            currentBulle.GetComponent<Bulle>().forceLancement = bulleLaunchStrength;
+            currentBulle.GetComponent<Bulle>().forceLancement = bulleLaunchStrength*(faceleft ? -1 : 1);
             currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonuslifeSpan;
-            if (faceleft)
-            {
-                _force.x = -bulleLaunchStrength;
-                currentBulle.GetComponent<Rigidbody2D>().AddForce(-_force);
-            }
-            else
-            {
-                _force.x = bulleLaunchStrength;
-                currentBulle.GetComponent<Rigidbody2D>().AddForce(_force);
-            }
+
             _internTiming = bulleSpawnTiming;
         } else
         {

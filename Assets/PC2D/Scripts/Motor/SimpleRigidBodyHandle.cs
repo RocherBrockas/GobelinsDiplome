@@ -10,6 +10,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     public LayerMask expirationMask;
     private Vector3 originPosition;
     public bool isMovingPlatform;
+    public bool isFallingPlatform;
     public bool isBubble;
     private PerceptionTypes currentPoofPerception = PerceptionTypes.None;
 
@@ -32,11 +33,11 @@ public class SimpleRigidBodyHandle : MonoBehaviour
             if (expirationMask == (expirationMask | (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == onlyInteractiveOnPerception)
             {
                 currentPoofPerception = onlyInteractiveOnPerception;
-                if (isMovingPlatform)
+                if (isMovingPlatform || isFallingPlatform)
                 {
+                    rigidbody.bodyType = RigidbodyType2D.Dynamic;
                     if (GetComponent<MovingPlatformMotor2D>() != null )
                     {
-                        rigidbody.bodyType = RigidbodyType2D.Dynamic;
                         GetComponent<MovingPlatformMotor2D>().enabled = false;
                     }
                 }

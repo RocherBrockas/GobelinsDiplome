@@ -9,11 +9,15 @@ public class PoofRange : MonoBehaviour
     public float maxScaleRange;
     private Vector3 originalScale;
     private Vector3 originalPos;
-
+    private bool _scalePoof;
+    private float _poofTimer;
+    private Vector3 destinationScale;
     private SimpleRigidBodyHandle collided;
 
     public void ResetComponents()
     {
+        _poofTimer = 0;
+        _scalePoof = false;
         this.transform.localScale = originalScale;
     }
 
@@ -22,7 +26,8 @@ public class PoofRange : MonoBehaviour
         if (PerceptionManager.instance.perception.perceptionType != PerceptionTypes.Death)
         {
             this.transform.SetParent(null);
-            StartCoroutine(ScaleOverTime(PerceptionManager.instance.perception.poofDuration));
+            _scalePoof = true;
+            _poofTimer =PerceptionManager.instance.perception.poofDuration * 30;
         } else
         {
             GetComponentInParent<PlayerController2D>().transform.position = PerceptionManager.instance.activeTotem.transform.position;
@@ -30,17 +35,16 @@ public class PoofRange : MonoBehaviour
 
     }
 
-    IEnumerator ScaleOverTime(float time)
-    {
-        float currentTime = 0.0f;
-        Vector3 destinationScale = new Vector3(maxScaleRange, maxScaleRange, maxScaleRange);
 
-        do
+    private void FixedUpdate()
+    {
+        if( _scalePoof)
         {
-            this.transform.localScale += Vector3.Lerp(originalScale, destinationScale, currentTime / time);
-            currentTime += Time.deltaTime;
-            yield return null;
-        } while (currentTime <= time);
+            if (this.transform.localScale.x < maxScaleRange && this.transform.localScale.y < maxScaleRange && this.transform.localScale.z < maxScaleRange)
+            {
+                this.transform.localScale += Vector3.Lerp(originalScale, destinationScale,Time.deltaTime/_poofTimer);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,5 +58,6 @@ public class PoofRange : MonoBehaviour
     private void Awake()
     {
         originalScale = this.transform.localScale;
+        destinationScale = new Vector3(maxScaleRange, maxScaleRange, maxScaleRange);
     }
 }

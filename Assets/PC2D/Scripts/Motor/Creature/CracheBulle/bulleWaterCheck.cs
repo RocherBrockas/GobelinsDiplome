@@ -7,6 +7,11 @@ public class bulleWaterCheck : MonoBehaviour
     public Bulle bulle;
     public LayerMask waterMask;
 
+    public void destroyWithBubble()
+    {
+        Destroy(this);
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(waterMask== (waterMask| (1 << collision.gameObject.layer)))

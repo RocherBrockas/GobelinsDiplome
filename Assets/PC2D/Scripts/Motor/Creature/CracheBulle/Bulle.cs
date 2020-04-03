@@ -19,13 +19,13 @@ public class Bulle : MonoBehaviour
 
     public void Pop()
     {
+        GetComponentInChildren<bulleWaterCheck>().destroyWithBubble();
         if (_containsPlayer)
         {
             this.transform.DetachChildren();
             _containsPlayer = false;
             _playerController.isInBubble = false;
         }
-
         Destroy(this.gameObject);
 
     }
