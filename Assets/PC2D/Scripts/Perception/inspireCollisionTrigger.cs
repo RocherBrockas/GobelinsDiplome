@@ -13,12 +13,14 @@ public class inspireCollisionTrigger : MonoBehaviour
         string layerName = LayerMask.LayerToName(collision.gameObject.layer);
         if (triggerMask == (triggerMask | (1 << collision.gameObject.layer)))
         {
-            
+
             if (collision.gameObject.GetComponent<PerceptionZone>().perception != null && collision.gameObject.GetComponent<PerceptionZone>().canBeInspired)
             {
+
                 detectedPerception = true;
                 feltPerception = collision.gameObject.GetComponent<PerceptionZone>().perception;
-            } else
+            }
+            else
             {
                 Debug.Log("Perception Inspirée Nulle");
             }

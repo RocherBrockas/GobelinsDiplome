@@ -182,11 +182,18 @@ public class PlayerController2D : MonoBehaviour
            if (perceptionManager.perception != collision.gameObject.GetComponent<PerceptionZone>().perception)
             {
                 perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
-                if (collision.gameObject.GetComponent<Totem>() != null)
-                {
-                    PerceptionManager.instance.activeTotem = collision.gameObject.GetComponent<Totem>();
-                }
+
                 _motor.AbilityChange(perceptionManager.perception);
+            }
+            if (collision.gameObject.GetComponent<Totem>() != null)
+            {
+                Totem totem = collision.gameObject.GetComponent<Totem>();
+                if (totem.isActive)
+                {
+                    PerceptionManager.instance.activeTotem = totem;
+                    if (!totem.activated && perceptionManager.perception == totem.perception)
+                        collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                }
             }
         }
         if (waterMask == (waterMask | ( 1 << collision.gameObject.layer)))
