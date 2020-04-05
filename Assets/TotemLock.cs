@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TotemLock : MonoBehaviour
 {
+    //rework into scriptable objects for gate and only item.
+    //make it into a list of items to activate and deactivate so there are no parts of the environment in it
     public Totem[] requiredTotems;
     public GameObject toActivate;
     public GameObject toDeActivate;

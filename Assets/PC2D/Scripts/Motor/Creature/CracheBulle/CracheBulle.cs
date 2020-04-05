@@ -15,6 +15,7 @@ public class CracheBulle : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(this.transform.position);
         _force = new Vector2(bulleLaunchStrength, 0);
     }
 
@@ -25,8 +26,9 @@ public class CracheBulle : MonoBehaviour
         {
             GameObject currentBulle = Instantiate(bulle);
             currentBulle.transform.position = this.transform.position;
+            Debug.Log(currentBulle.transform.position);
             currentBulle.GetComponent<Bulle>().isDestroyable = true;
-            currentBulle.GetComponent<Bulle>().forceLancement = bulleLaunchStrength*(faceleft ? -1 : 1);
+            currentBulle.GetComponent<Bulle>().forceLancement = bulleLaunchStrength;
             currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
 
             _internTiming = bulleSpawnTiming;
