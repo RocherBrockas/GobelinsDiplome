@@ -8,6 +8,7 @@ public class Totem : PerceptionZone
     public bool activated;
     public Totem[] nextTotems;
     public GameObject flux;
+    public TotemLock[] totemLocks;
 
     public void ActivateFlux()
     {
@@ -16,6 +17,13 @@ public class Totem : PerceptionZone
         foreach(Totem t in nextTotems)
         {
             t.isActive = true;
+        }
+        if (totemLocks.Length != 0)
+        {
+            foreach(TotemLock tl in totemLocks)
+            {
+                tl.UnlockTotem();
+            }
         }
     }
 }

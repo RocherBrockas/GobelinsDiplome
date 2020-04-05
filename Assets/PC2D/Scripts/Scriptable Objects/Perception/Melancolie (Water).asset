@@ -33,7 +33,7 @@ MonoBehaviour:
   jumpHeigth: 1.73
   extraJumpHeigth: 1.25
   numberOfAirJumps: 0
-  enableWallJump: 1
-  enableWallStick: 1
-  enableWallSlide: 1
+  enableWallJump: 0
+  enableWallStick: 0
+  enableWallSlide: 0
   enableDash: 0

@@ -6,7 +6,7 @@ public class CracheBulle : MonoBehaviour
 {
     public float bulleLaunchStrength;
     public float bulleSpawnTiming;
-    private float bonuslifeSpan = 240;
+    public float bonusLifeSpan = 240;
     private float _internTiming;
     public GameObject bulle;
     private Vector2 _force;
@@ -21,14 +21,13 @@ public class CracheBulle : MonoBehaviour
     void FixedUpdate()
     {
         faceleft = (playerController.transform.position.x < this.transform.position.x);
-        Debug.Log(faceleft);
         if (_internTiming < 0)
         {
             GameObject currentBulle = Instantiate(bulle);
             currentBulle.transform.position = this.transform.position;
             currentBulle.GetComponent<Bulle>().isDestroyable = true;
             currentBulle.GetComponent<Bulle>().forceLancement = bulleLaunchStrength*(faceleft ? -1 : 1);
-            currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonuslifeSpan;
+            currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
 
             _internTiming = bulleSpawnTiming;
         } else

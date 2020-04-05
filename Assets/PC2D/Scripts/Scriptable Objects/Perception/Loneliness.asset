@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   c: {r: 0, g: 0, b: 0, a: 0}
   perceptionType: 2
-  inspireCooldown: 0
+  inspireCooldown: 0.5
   expireCooldown: 0
   expireRange: 0
-  poofDuration: 0
+  poofDuration: 0.5
   poofCharge: 0
   canInspire: 0
   groundSpeed: 8
@@ -30,7 +30,7 @@ MonoBehaviour:
   gravityMultiplier: 2
   fastFallSpeed: 32
   fastFallGravity: 4
-  jumpHeigth: 2.5
+  jumpHeigth: 3.25
   extraJumpHeigth: 0
   numberOfAirJumps: 0
   enableWallJump: 0

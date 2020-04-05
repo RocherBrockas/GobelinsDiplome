@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8988422608640616717}
   - component: {fileID: 2971095355599814030}
   - component: {fileID: 1596727944669278482}
+  - component: {fileID: 1255908167}
   m_Layer: 17
   m_Name: bulleWaterCheck
   m_TagString: Untagged
@@ -64,6 +65,25 @@ CircleCollider2D:
   m_Offset: {x: -0.00126669, y: 0}
   serializedVersion: 2
   m_Radius: 0.084774226
+--- !u!114 &1255908167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7281156751363978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8772f95f818e2944b80900931470ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onlyInteractiveOnPerception: 1
+  expirationMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  isMovingPlatform: 0
+  isFallingPlatform: 0
+  isBubble: 1
 --- !u!1 &939300617626593022
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +111,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939300617626593022}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.1144524, y: -37.86737, z: 86.752716}
   m_LocalScale: {x: 7.604629, y: 7.604629, z: 7.604629}
   m_Children:
@@ -137,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.27058825}
   m_FlipX: 0
@@ -199,7 +219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyable: 0
+  goDown: 0
   lifespan: 0
+  speedThreshold: 2
+  floatBoost: 12
   forceLancement: 0
   collisionMask:
     serializedVersion: 2

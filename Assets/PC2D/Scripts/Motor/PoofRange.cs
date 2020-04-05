@@ -30,6 +30,7 @@ public class PoofRange : MonoBehaviour
             _poofTimer =PerceptionManager.instance.perception.poofDuration * 30;
         } else
         {
+            if (PerceptionManager.instance.activeTotem != null)
             GetComponentInParent<PlayerController2D>().transform.position = PerceptionManager.instance.activeTotem.transform.position;
         }
 

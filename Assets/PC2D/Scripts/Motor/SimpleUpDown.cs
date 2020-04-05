@@ -25,8 +25,6 @@ namespace PC2D
         {
             if (_mpMotor.needReset && ((_startingY - _mpMotor.position.y) > 0f) && (origin.x - _mpMotor.position.x) < 0f)
             {
-                Debug.Log("oui");
-
                 _mpMotor.velocity = (origin - _mpMotor.position).normalized * speed;
             }
             else

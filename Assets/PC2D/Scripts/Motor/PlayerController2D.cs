@@ -162,7 +162,7 @@ public class PlayerController2D : MonoBehaviour
         }
 
         if (Input.GetButtonDown(PC2D.Input.INSPIRE))
-        { 
+        {
             if (_canInspire)
             {
                 inspireRange.SetActive(true);
@@ -179,24 +179,43 @@ public class PlayerController2D : MonoBehaviour
         string layerName = LayerMask.LayerToName(collision.gameObject.layer);
         if (perceptionManager.triggerMask == (perceptionManager.triggerMask | (1 << collision.gameObject.layer)))
         {
-           if (perceptionManager.perception != collision.gameObject.GetComponent<PerceptionZone>().perception)
+            if (perceptionManager.perception != collision.gameObject.GetComponent<PerceptionZone>().perception)
             {
-                perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
-
-                _motor.AbilityChange(perceptionManager.perception);
-            }
-            if (collision.gameObject.GetComponent<Totem>() != null)
-            {
-                Totem totem = collision.gameObject.GetComponent<Totem>();
-                if (totem.isActive)
+                if (collision.gameObject.GetComponent<Totem>() != null)
                 {
-                    PerceptionManager.instance.activeTotem = totem;
-                    if (!totem.activated && perceptionManager.perception == totem.perception)
-                        collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                    Totem totem = collision.gameObject.GetComponent<Totem>();
+                    if (totem.isActive)
+                    {
+                        PerceptionManager.instance.activeTotem = totem;
+                        if (!totem.activated)
+                            collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                        perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
+
+                        _motor.AbilityChange(perceptionManager.perception);
+                    }
+                }
+                else
+                {
+                    perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
+
+                    _motor.AbilityChange(perceptionManager.perception);
+                }
+            }
+            else
+            {
+                if (collision.gameObject.GetComponent<Totem>() != null)
+                {
+                    Totem totem = collision.gameObject.GetComponent<Totem>();
+                    if (totem.isActive)
+                    {
+                        PerceptionManager.instance.activeTotem = totem;
+                        if (!totem.activated)
+                            collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                    }
                 }
             }
         }
-        if (waterMask == (waterMask | ( 1 << collision.gameObject.layer)))
+        if (waterMask == (waterMask | (1 << collision.gameObject.layer)))
         {
             _motor.isInWater = true;
         }
@@ -211,8 +230,8 @@ public class PlayerController2D : MonoBehaviour
         expireRange.SetActive(false);
         expireRange.transform.position = this.transform.position;
         expireRange.transform.SetParent(this.transform);
-        expireRange.GetComponent<PoofRange>().ResetComponents();    
-        
+        expireRange.GetComponent<PoofRange>().ResetComponents();
+
         _canInspire = true;
     }
 
