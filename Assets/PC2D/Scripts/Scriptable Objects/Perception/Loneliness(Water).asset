@@ -20,14 +20,14 @@ MonoBehaviour:
   poofDuration: 0.7
   poofCharge: 0
   canInspire: 0
-  groundSpeed: 8
+  groundSpeed: 8.5
   acceleration: 0.6
   groundStopDistance: 0.333
-  airSpeed: 6
-  airAcceleration: 0
+  airSpeed: 8.5
+  airAcceleration: 0.1
   airStopDistance: 2
-  fallSpeed: -3.5
-  gravityMultiplier: 1.5
+  fallSpeed: -4.5
+  gravityMultiplier: 2
   fastFallSpeed: 32
   fastFallGravity: 4
   jumpHeigth: 1.5

@@ -107,8 +107,8 @@ MonoBehaviour:
   numOfAirJumps: 1
   jumpWindowWhenFalling: 0.2
   jumpWindowWhenActivated: 0.2
-  enableSlopes: 0
-  angleAllowedForMoving: 80
+  enableSlopes: 1
+  angleAllowedForMoving: 60
   minimumSpeedToMoveUpSlipperySlope: 7.5
   changeSpeedOnSlopes: 0
   speedMultiplierOnSlope: 0.75
@@ -157,6 +157,7 @@ MonoBehaviour:
   waterMask:
     serializedVersion: 2
     m_Bits: 16
+  isInBubble: 0
   startingPosition: {fileID: 11400000, guid: f450e431be8b7b84699eb5297d25258c, type: 2}
 --- !u!114 &11405038
 MonoBehaviour:
