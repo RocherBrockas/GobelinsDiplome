@@ -3497,6 +3497,8 @@ public class PlatformerMotor2D : MonoBehaviour
             enableWallSticks = perception.enableWallStick;
             enableWallSlides = perception.enableWallSlide;
             enableDashes = perception.enableDash;
+            enableCornerGrabs = perception.enableCornerGrab;
+            cornerJumpMultiplier = perception.cornerJumpMultiplier;
 
             PerceptionItemManager.instance.ChangeLayout();
         } else

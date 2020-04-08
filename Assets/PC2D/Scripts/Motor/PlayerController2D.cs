@@ -264,15 +264,4 @@ public class PlayerController2D : MonoBehaviour
             _motor.isInWater = false;
         }
     }
-
-    private void Awake()
-    {
-        //if (perceptionManager.perception != null)
-        //{
-        //    _motor.AbilityChange(perceptionManager.perception);
-        //} else
-        //{
-        //    Debug.Log("No start perception");
-        //}
-    }
 }

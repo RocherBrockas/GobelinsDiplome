@@ -43,4 +43,6 @@ public class Perception : ScriptableObject
     public bool enableWallStick;
     public bool enableWallSlide;
     public bool enableDash;
+    public bool enableCornerGrab;
+    public float cornerJumpMultiplier;
 }

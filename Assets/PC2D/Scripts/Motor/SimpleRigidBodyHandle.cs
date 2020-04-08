@@ -19,7 +19,8 @@ public class SimpleRigidBodyHandle : MonoBehaviour
         if (GetComponent<Rigidbody2D>() != null)
         {
             rigidbody = GetComponent<Rigidbody2D>();
-        } else
+        }
+        else
         {
             rigidbody = GetComponentInParent<Rigidbody2D>();
         }
@@ -36,7 +37,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                 if (isMovingPlatform || isFallingPlatform)
                 {
                     rigidbody.bodyType = RigidbodyType2D.Dynamic;
-                    if (GetComponent<MovingPlatformMotor2D>() != null )
+                    if (GetComponent<MovingPlatformMotor2D>() != null)
                     {
                         GetComponent<MovingPlatformMotor2D>().enabled = false;
                     }
@@ -59,7 +60,11 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                 GetComponent<MovingPlatformMotor2D>().enabled = true;
                 rigidbody.bodyType = RigidbodyType2D.Kinematic;
                 GetComponent<MovingPlatformMotor2D>().needReset = true;
-            } 
+            }
+            else if (isBubble)
+            {
+                GetComponentInParent<Bulle>().goDown = false;
+            }
         }
     }
 

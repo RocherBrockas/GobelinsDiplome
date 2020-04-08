@@ -20,7 +20,7 @@ MonoBehaviour:
   poofDuration: 5
   poofCharge: 0
   canInspire: 0
-  groundSpeed: 6.08
+  groundSpeed: 6.3
   acceleration: 0.2
   groundStopDistance: 0
   airSpeed: 4
@@ -37,3 +37,5 @@ MonoBehaviour:
   enableWallStick: 0
   enableWallSlide: 0
   enableDash: 0
+  enableCornerGrab: 1
+  cornerJumpMultiplier: 0.7

@@ -9,7 +9,7 @@ public class bulleWaterCheck : MonoBehaviour
 
     public void destroyWithBubble()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

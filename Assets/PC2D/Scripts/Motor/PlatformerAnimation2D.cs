@@ -61,22 +61,29 @@ namespace PC2D
                 {
                     _animator.Play("Fall");
                 }
-                else if (_motor.motorState == PlatformerMotor2D.MotorState.WallSliding ||
-                         _motor.motorState == PlatformerMotor2D.MotorState.WallSticking)
+                //else if (_motor.motorState == PlatformerMotor2D.MotorState.WallSliding ||
+                //         _motor.motorState == PlatformerMotor2D.MotorState.WallSticking)
+                //{
+                //    _animator.Play("Cling");
+                //}
+                //else if (_motor.motorState == PlatformerMotor2D.MotorState.OnCorner)
+                //{
+                //    _animator.Play("On Corner");
+                //}
+                //else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
+                //{
+                //    _animator.Play("Slip");
+                //}
+                //else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
+                //{
+                //    _animator.Play("Dash");
+                //}
+                else if (_motor.motorState == PlatformerMotor2D.MotorState.Expiring)
                 {
-                    _animator.Play("Cling");
-                }
-                else if (_motor.motorState == PlatformerMotor2D.MotorState.OnCorner)
+                    _animator.Play("Inspiration");
+                } else if (_motor.motorState == PlatformerMotor2D.MotorState.Inspiring)
                 {
-                    _animator.Play("On Corner");
-                }
-                else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
-                {
-                    _animator.Play("Slip");
-                }
-                else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
-                {
-                    _animator.Play("Dash");
+                    _animator.Play("Expiration");
                 }
                 else
                 {

@@ -16,10 +16,11 @@ public class Bulle : MonoBehaviour
     private LayerMask collisionMask;
     private PlayerController2D _playerController;
     private Rigidbody2D rb;
+    private bulleWaterCheck bwc;
 
     public void Pop()
     {
-        GetComponentInChildren<bulleWaterCheck>().destroyWithBubble();
+        bwc.destroyWithBubble();
         if (_containsPlayer)
         {
             this.transform.DetachChildren();
@@ -32,6 +33,7 @@ public class Bulle : MonoBehaviour
 
     private void Start()
     {
+        bwc = GetComponentInChildren<bulleWaterCheck>();
         force = new Vector2(forceLancement * 5, 0);
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(force);
@@ -84,6 +86,8 @@ public class Bulle : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerController2D>() != null)
             {
                 _playerController = collision.gameObject.GetComponent<PlayerController2D>();
+                if (!_playerController.isInBubble)
+                {
                 _playerController.isInBubble = true;
                 _playerController.Setbubble(this);
                 collision.transform.SetParent(this.transform);
@@ -91,6 +95,7 @@ public class Bulle : MonoBehaviour
                 this.GetComponent<CircleCollider2D>().isTrigger = true;
                 _containsPlayer = true;
                 isDestroyable = true;
+                }
             }
         }
     }
