@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Totem : PerceptionZone
+[CreateAssetMenu]
+public class TotemMemory : ScriptableObject
 {
     public bool isActive;
     public bool activated;
-    public Totem[] nextTotems;
-    public GameObject flux;
+    public TotemMemory[] nextTotems;
     public TotemLock[] totemLocks;
 
     public void ActivateFlux()
     {
         activated = true;
-        flux.SetActive(true);
-        foreach(Totem t in nextTotems)
+        foreach(TotemMemory t in nextTotems)
         {
             t.isActive = true;
         }

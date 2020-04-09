@@ -6,7 +6,7 @@ public class TotemLock : MonoBehaviour
 {
     //rework into scriptable objects for gate and only item.
     //make it into a list of items to activate and deactivate so there are no parts of the environment in it
-    public Totem[] requiredTotems;
+    public TotemMemory[] requiredTotems;
     public GameObject toActivate;
     public GameObject toDeActivate;
 
@@ -15,7 +15,7 @@ public class TotemLock : MonoBehaviour
     public void UnlockTotem()
     {
         bool loopcheck = true; ;
-        foreach(Totem t in requiredTotems)
+        foreach(TotemMemory t in requiredTotems)
         {
             if (!t.activated)
             {
@@ -31,5 +31,10 @@ public class TotemLock : MonoBehaviour
                 toDeActivate.SetActive(false);
             
         }
+    }
+
+    public void Awake()
+    {
+        UnlockTotem();   
     }
 }

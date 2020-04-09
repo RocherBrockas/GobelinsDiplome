@@ -184,11 +184,14 @@ public class PlayerController2D : MonoBehaviour
                 if (collision.gameObject.GetComponent<Totem>() != null)
                 {
                     Totem totem = collision.gameObject.GetComponent<Totem>();
-                    if (totem.isActive)
+                    if (totem.totemMemory.isActive)
                     {
                         PerceptionManager.instance.activeTotem = totem;
-                        if (!totem.activated)
-                            collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                        if (!totem.totemMemory.activated)
+                        {
+                            totem.totemMemory.ActivateFlux();
+                            totem.ActivateFlux();
+                        }
                         perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
 
                         _motor.AbilityChange(perceptionManager.perception);
@@ -206,11 +209,11 @@ public class PlayerController2D : MonoBehaviour
                 if (collision.gameObject.GetComponent<Totem>() != null)
                 {
                     Totem totem = collision.gameObject.GetComponent<Totem>();
-                    if (totem.isActive)
+                    if (totem.totemMemory.isActive)
                     {
                         PerceptionManager.instance.activeTotem = totem;
-                        if (!totem.activated)
-                            collision.gameObject.GetComponent<Totem>().ActivateFlux();
+                        if (!totem.totemMemory.activated)
+                            collision.gameObject.GetComponent<Totem>().totemMemory.ActivateFlux();
                     }
                 }
             }

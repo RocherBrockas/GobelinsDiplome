@@ -11,12 +11,18 @@ namespace PC2D
     public class PlatformerAnimation2D : MonoBehaviour
     {
         public float jumpRotationSpeed;
+        public ParticleSystem dust;
         public GameObject visualChild;
 
         private PlatformerMotor2D _motor;
         private Animator _animator;
         private bool _isJumping;
         private bool _currentFacingLeft;
+
+        public void CreateDust()
+        {
+            dust.Play();
+        }
 
         // Use this for initialization
         void Start()
@@ -29,7 +35,7 @@ namespace PC2D
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (_motor.motorState == PlatformerMotor2D.MotorState.Jumping ||
                 _isJumping &&
@@ -38,6 +44,7 @@ namespace PC2D
             {
                 _isJumping = true;
                 _animator.Play("Jump");
+                CreateDust();
 
                 if (_motor.velocity.x <= -0.1f)
                 {
@@ -73,10 +80,6 @@ namespace PC2D
                 //else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
                 //{
                 //    _animator.Play("Slip");
-                //}
-                //else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
-                //{
-                //    _animator.Play("Dash");
                 //}
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.Expiring)
                 {

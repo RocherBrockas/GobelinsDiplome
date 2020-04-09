@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87dd5f11bf85e0643bc6367a85fd6402, type: 3}
-  m_Name: Player Position
+  m_Script: {fileID: 11500000, guid: dc2d85452c2d81948a261ef4617f1fb2, type: 3}
+  m_Name: Premier Totem Recup Melancolie
   m_EditorClassIdentifier: 
-  initialValue: {x: 1, y: 1}
-  perception: {fileID: 11400000, guid: ce0c586550e0a53478c15f99c33361b6, type: 2}
+  isActive: 1
+  activated: 0
+  nextTotems:
+  - {fileID: 11400000, guid: 8eca7855159665b4c93bec1e3a0daa7d, type: 2}
+  totemLocks: []
