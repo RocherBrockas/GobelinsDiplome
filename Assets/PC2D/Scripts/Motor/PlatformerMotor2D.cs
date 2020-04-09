@@ -1049,6 +1049,7 @@ public class PlatformerMotor2D : MonoBehaviour
 
     #region Private
 
+    private PlatformerAnimation2D _platformerAnimation2D;
     private LayerMask _collisionMask;
 
     private Vector2 _restrictedAreaTR;
@@ -1216,6 +1217,7 @@ public class PlatformerMotor2D : MonoBehaviour
         SetDashFunctions();
         _collider2D = GetComponent<Collider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _platformerAnimation2D = GetComponent<PlatformerAnimation2D>();
 
         if (iterationDebug)
         {
@@ -1562,6 +1564,7 @@ public class PlatformerMotor2D : MonoBehaviour
         {
             if (IsFalling() || IsFallingFast())
             {
+                _platformerAnimation2D.LandingPoof.Play();
                 if (onLanded != null)
                 {
                     onLanded();

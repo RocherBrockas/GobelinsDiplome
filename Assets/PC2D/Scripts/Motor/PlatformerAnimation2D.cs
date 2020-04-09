@@ -12,6 +12,7 @@ namespace PC2D
     {
         public float jumpRotationSpeed;
         public ParticleSystem dust;
+        public ParticleSystem LandingPoof;
         public GameObject visualChild;
 
         private PlatformerMotor2D _motor;
