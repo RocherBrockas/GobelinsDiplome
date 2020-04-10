@@ -9,6 +9,8 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     public PerceptionTypes onlyInteractiveOnPerception;
     public LayerMask expirationMask;
     private Vector3 originPosition;
+    public float mass;
+    private float originMass;
     public bool isMovingPlatform;
     public bool isFallingPlatform;
     public bool isBubble;
@@ -19,6 +21,10 @@ public class SimpleRigidBodyHandle : MonoBehaviour
         if (GetComponent<Rigidbody2D>() != null)
         {
             rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody.bodyType == RigidbodyType2D.Dynamic)
+            {
+                originMass = rigidbody.mass;
+            }
         }
         else
         {
@@ -37,6 +43,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                 if (isMovingPlatform || isFallingPlatform)
                 {
                     rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                    rigidbody.mass = mass;
                     if (GetComponent<MovingPlatformMotor2D>() != null)
                     {
                         GetComponent<MovingPlatformMotor2D>().enabled = false;
@@ -64,6 +71,10 @@ public class SimpleRigidBodyHandle : MonoBehaviour
             else if (isBubble)
             {
                 GetComponentInParent<Bulle>().goDown = false;
+            }
+            if (isFallingPlatform && originMass != 0)
+            {
+                rigidbody.mass = originMass;
             }
         }
     }

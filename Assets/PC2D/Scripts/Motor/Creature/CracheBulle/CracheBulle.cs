@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PC2D;
 
 public class CracheBulle : MonoBehaviour
 {
@@ -8,12 +9,18 @@ public class CracheBulle : MonoBehaviour
     public float bulleSpawnTiming;
     public float bonusLifeSpan = 240;
     public float randomStrengthVariation;
-    private float _internTiming;
+    public PerceptionTypes AwakenPerception;
     public GameObject bulle;
-    private Vector2 _force;
+
     public PlayerController2D playerController;
+
     private bool faceleft;
     private float _randomStrengthModifier;
+    public bool isActive;
+    public LayerMask collisionMask;
+    private float _internTiming;
+    private Vector2 _force;
+
 
     private void Start()
     {
@@ -23,21 +30,37 @@ public class CracheBulle : MonoBehaviour
 
     void FixedUpdate()
     {
-       if (_internTiming < 0)
+        if (isActive)
         {
-            _randomStrengthModifier = Random.Range(-randomStrengthVariation, randomStrengthVariation);
-            faceleft = (playerController.transform.position.x < this.transform.position.x);
-            GameObject currentBulle = Instantiate(bulle);
-            currentBulle.transform.position = this.transform.position;
-            Debug.Log(currentBulle.transform.position);
-            currentBulle.GetComponent<Bulle>().isDestroyable = true;
-            currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) *(faceleft ? -1 : 1);
-            currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
+            if (_internTiming < 0)
+            {
+                _randomStrengthModifier = Random.Range(-randomStrengthVariation, randomStrengthVariation);
+                faceleft = (playerController.transform.position.x < this.transform.position.x);
+                GameObject currentBulle = Instantiate(bulle);
+                currentBulle.transform.position = this.transform.position;
+                Debug.Log(currentBulle.transform.position);
+                currentBulle.GetComponent<Bulle>().isDestroyable = true;
+                currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
+                currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
 
-            _internTiming = bulleSpawnTiming;
-        } else
+                _internTiming = bulleSpawnTiming;
+            }
+            else
+            {
+                _internTiming--;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PoofRange>() != null)
         {
-            _internTiming--;
+            if (collisionMask == (collisionMask| (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
+            {
+                Debug.Log("Activate crache bulle");
+                isActive = true;
+            }
         }
     }
 }

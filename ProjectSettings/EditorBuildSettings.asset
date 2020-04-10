@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PC2D/Scenes/Temple SousSol.unity
     guid: dff1b8cd565cd734caed311815ac7905
+  - enabled: 1
+    path: Assets/PC2D/Scenes/Lac Playtest.unity
+    guid: d302bc18ae112d547814dcaaae6d111c
   m_configObjects: {}

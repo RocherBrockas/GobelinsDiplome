@@ -38,9 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Premiers plans
+    uniqueID: 1818946709
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 2835396835
+    locked: 0
+  - name: Environment
+    uniqueID: 2424245007
+    locked: 0
+  - name: "Arri\xE8re plan"
+    uniqueID: 553909641
     locked: 0

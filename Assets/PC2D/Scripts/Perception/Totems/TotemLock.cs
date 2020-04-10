@@ -12,7 +12,7 @@ public class TotemLock : MonoBehaviour
 
     private bool _unlocked = false;
 
-    public void UnlockTotem()
+    public void UnlockTotemCheck()
     {
         bool loopcheck = true; ;
         foreach(TotemMemory t in requiredTotems)
@@ -35,6 +35,6 @@ public class TotemLock : MonoBehaviour
 
     public void Awake()
     {
-        UnlockTotem();   
+        UnlockTotemCheck();   
     }
 }

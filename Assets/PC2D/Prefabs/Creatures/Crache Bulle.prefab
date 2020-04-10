@@ -99,5 +99,10 @@ MonoBehaviour:
   bulleSpawnTiming: 360
   bonusLifeSpan: 240
   randomStrengthVariation: 20
+  AwakenPerception: 1
   bulle: {fileID: 0}
   playerController: {fileID: 0}
+  isActive: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 32768

@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 7414519039229651650, guid: 66856c46bd2cc83499d013c2a93bc93f,
         type: 3}
       propertyPath: m_Name
-      value: Entretoise Premier Tiers
+      value: Entretoise Premier Tiers Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7414519039229651651, guid: 66856c46bd2cc83499d013c2a93bc93f,
         type: 3}
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 7414519039229651651, guid: 66856c46bd2cc83499d013c2a93bc93f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 324.93958
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414519039229651651, guid: 66856c46bd2cc83499d013c2a93bc93f,
         type: 3}

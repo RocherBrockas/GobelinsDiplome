@@ -8,7 +8,7 @@ public class TotemMemory : ScriptableObject
     public bool isActive;
     public bool activated;
     public TotemMemory[] nextTotems;
-    public TotemLock[] totemLocks;
+
 
     public void ActivateFlux()
     {
@@ -16,13 +16,6 @@ public class TotemMemory : ScriptableObject
         foreach(TotemMemory t in nextTotems)
         {
             t.isActive = true;
-        }
-        if (totemLocks.Length != 0)
-        {
-            foreach(TotemLock tl in totemLocks)
-            {
-                tl.UnlockTotem();
-            }
         }
     }
 }

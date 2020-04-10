@@ -16,4 +16,3 @@ MonoBehaviour:
   activated: 0
   nextTotems:
   - {fileID: 11400000, guid: 8eca7855159665b4c93bec1e3a0daa7d, type: 2}
-  totemLocks: []

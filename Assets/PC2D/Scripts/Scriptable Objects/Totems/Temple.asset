@@ -15,5 +15,3 @@ MonoBehaviour:
   isActive: 0
   activated: 0
   nextTotems: []
-  flux: {fileID: 0}
-  totemLocks: []

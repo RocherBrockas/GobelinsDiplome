@@ -37,5 +37,5 @@ MonoBehaviour:
   enableWallStick: 0
   enableWallSlide: 0
   enableDash: 0
-  enableCornerGrab: 1
+  enableCornerGrab: 0
   cornerJumpMultiplier: 0.7

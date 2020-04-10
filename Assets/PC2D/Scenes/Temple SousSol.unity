@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -754,7 +754,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458903611}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1484,6 +1484,11 @@ PrefabInstance:
     - target: {fileID: 11484836, guid: f060f223269b2b648b7af46a3010df81, type: 3}
       propertyPath: upDownAmount
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 951161585603258970, guid: f060f223269b2b648b7af46a3010df81,
+        type: 3}
+      propertyPath: mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f060f223269b2b648b7af46a3010df81, type: 3}
@@ -2322,6 +2327,11 @@ PrefabInstance:
       propertyPath: isMovingPlatform
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 951161585603258970, guid: f060f223269b2b648b7af46a3010df81,
+        type: 3}
+      propertyPath: mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11484836, guid: f060f223269b2b648b7af46a3010df81, type: 3}
     - {fileID: 11411470, guid: f060f223269b2b648b7af46a3010df81, type: 3}
@@ -2456,6 +2466,7 @@ MonoBehaviour:
   canBeInspired: 0
   totemMemory: {fileID: 11400000, guid: b66ae194a24631f4b9f090afb9938178, type: 2}
   Flux: {fileID: 1465969778}
+  totemLocks: []
 --- !u!212 &2090582357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2891,12 +2902,12 @@ PrefabInstance:
     - target: {fileID: 8083263087176516640, guid: ae2a1b7305495494f81a0321a7d2dd04,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 102.378525
+      value: 102.37189
       objectReference: {fileID: 0}
     - target: {fileID: 8083263087176516640, guid: ae2a1b7305495494f81a0321a7d2dd04,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.839289
+      value: 12.839287
       objectReference: {fileID: 0}
     - target: {fileID: 8083263087176516641, guid: ae2a1b7305495494f81a0321a7d2dd04,
         type: 3}

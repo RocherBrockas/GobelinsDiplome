@@ -15,4 +15,3 @@ MonoBehaviour:
   isActive: 0
   activated: 0
   nextTotems: []
-  totemLocks: []

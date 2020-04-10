@@ -45,16 +45,17 @@ public class Bulle : MonoBehaviour
     {
         if (_containsPlayer)
         {
+            _playerController.transform.position = this.transform.position - Vector3.up;
             if (rb.velocity.magnitude < speedThreshold)
             {
                 rb.AddForce(Vector2.up * floatBoost);
             }
         }
-        else if (goDown)
+        if (goDown)
         {
             if (rb.velocity.magnitude < speedThreshold)
             {
-                rb.AddForce(Vector2.up * -floatBoost/2);
+                rb.AddForce(Vector2.up * -floatBoost/4);
             }
         }
 
@@ -90,8 +91,6 @@ public class Bulle : MonoBehaviour
                 {
                 _playerController.isInBubble = true;
                 _playerController.Setbubble(this);
-                collision.transform.SetParent(this.transform);
-                collision.transform.position = this.transform.position;
                 this.GetComponent<CircleCollider2D>().isTrigger = true;
                 _containsPlayer = true;
                 isDestroyable = true;

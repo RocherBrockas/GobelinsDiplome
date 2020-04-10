@@ -155,7 +155,7 @@ public class PlayerController2D : MonoBehaviour
         {
             if (_canInspire)
             {
-                expireRange.transform.position = this.transform.position;
+                expireRange.transform.position = this.transform.position + Vector3.up;
                 expireRange.SetActive(true);
                 StartCoroutine(ExpireCooldown());
             }
@@ -213,7 +213,10 @@ public class PlayerController2D : MonoBehaviour
                     {
                         PerceptionManager.instance.activeTotem = totem;
                         if (!totem.totemMemory.activated)
+                        {
                             collision.gameObject.GetComponent<Totem>().totemMemory.ActivateFlux();
+                            totem.ActivateFlux();
+                        }
                     }
                 }
             }
