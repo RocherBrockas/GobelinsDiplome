@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/PC2D/Scenes/Grotte D\xE9but.unity"
     guid: 110943aaf4f27974c8db0dbfa3eee522
-  - enabled: 1
+  - enabled: 0
     path: Assets/PC2D/Scenes/Lac Zone Principale.unity
     guid: fc2d676072ecd004b88cfcb168c0d75b
   - enabled: 1
@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/PC2D/Scenes/Grotte Pr\xE9Temple.unity"
     guid: 1f25db10a91f0b14daf5c7f50ecac336
-  - enabled: 1
+  - enabled: 0
     path: Assets/PC2D/Scenes/Lac Grotte Sous-Marine.unity
     guid: a29ab7916b1fe0a41a90766568cab204
   - enabled: 0
     path: Assets/PC2D/Scenes/Old/Lac Overworld 6avril.unity
     guid: d43809fc15f339649b4159dfc5b1a49f
-  - enabled: 1
+  - enabled: 0
     path: Assets/PC2D/Scenes/Temple Fin de Level.unity
     guid: e47c8fe6caf0e7d478191b10a9f2734a
   - enabled: 1

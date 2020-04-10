@@ -5,7 +5,7 @@ using PC2D;
 
 public class SimpleRigidBodyHandle : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody;
+
     public PerceptionTypes onlyInteractiveOnPerception;
     public LayerMask expirationMask;
     private Vector3 originPosition;
@@ -15,6 +15,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     public bool isFallingPlatform;
     public bool isBubble;
     private PerceptionTypes currentPoofPerception = PerceptionTypes.None;
+    private new Rigidbody2D rigidbody;
 
     public void Start()
     {

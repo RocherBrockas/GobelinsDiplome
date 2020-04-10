@@ -10,8 +10,6 @@ public class TotemLock : MonoBehaviour
     public GameObject toActivate;
     public GameObject toDeActivate;
 
-    private bool _unlocked = false;
-
     public void UnlockTotemCheck()
     {
         bool loopcheck = true; ;

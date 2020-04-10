@@ -17,7 +17,7 @@ MonoBehaviour:
   inspireCooldown: 1
   expireCooldown: 5
   expireRange: 0
-  poofDuration: 5
+  poofDuration: 1
   poofCharge: 0
   canInspire: 0
   groundSpeed: 6.3

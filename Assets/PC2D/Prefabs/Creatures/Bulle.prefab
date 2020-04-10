@@ -81,6 +81,7 @@ MonoBehaviour:
   expirationMask:
     serializedVersion: 2
     m_Bits: 32768
+  mass: 0
   isMovingPlatform: 0
   isFallingPlatform: 0
   isBubble: 1
@@ -112,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939300617626593022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1144524, y: -37.86737, z: 86.752716}
+  m_LocalPosition: {x: -7.1144524, y: -37.86737, z: 0}
   m_LocalScale: {x: 7.604629, y: 7.604629, z: 7.604629}
   m_Children:
   - {fileID: 8988422608640616717}

@@ -12,8 +12,8 @@ public class Bulle : MonoBehaviour
     public float forceLancement;
     private Vector2 force;
     private bool _containsPlayer = false;
-    [SerializeField]
-    private LayerMask collisionMask;
+
+    public LayerMask collisionMask;
     private PlayerController2D _playerController;
     private Rigidbody2D rb;
     private bulleWaterCheck bwc;

@@ -1095,7 +1095,7 @@ public class PlatformerMotor2D : MonoBehaviour
     // Moving Platform Debug
     private Vector3 _point;
     private Vector3 _point2;
-    private Bounds _prevPosPlat;
+    //private Bounds _prevPosPlat;
     private Bounds _startPosMotor;
     private Bounds _movedPosMotor;
 
@@ -1720,7 +1720,7 @@ public class PlatformerMotor2D : MonoBehaviour
         {
             _point = new Vector3();
             _point2 = new Vector3();
-            _prevPosPlat = new Bounds();
+            //_prevPosPlat = new Bounds();
             _movedPosMotor = new Bounds();
             _startPosMotor = new Bounds();
         }
