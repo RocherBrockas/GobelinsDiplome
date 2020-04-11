@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0eb2073821c7c445922c9d843cee35f, type: 3}
   m_Name: Melancolie
   m_EditorClassIdentifier: 
-  c: {r: 0.9333334, g: 0.7568628, b: 0.22352943, a: 0}
+  animatorIndex: 1
   perceptionType: 1
   inspireCooldown: 1
   expireCooldown: 5

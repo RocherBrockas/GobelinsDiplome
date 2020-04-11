@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 
+
 /// <summary>
 /// This class is a simple example of how to build a controller that interacts with PlatformerMotor2D.
 /// </summary>
@@ -251,7 +252,6 @@ public class PlayerController2D : MonoBehaviour
             if (inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception != null && (perceptionManager.perception != inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception))
             {
                 perceptionManager.perception = inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception;
-                //Debug.Log(perceptionManager.perception);
                 _motor.AbilityChange(perceptionManager.perception);
                 inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception = false;
             }

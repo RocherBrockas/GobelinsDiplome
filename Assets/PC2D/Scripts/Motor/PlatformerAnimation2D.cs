@@ -14,11 +14,29 @@ namespace PC2D
         public ParticleSystem dust;
         public ParticleSystem LandingPoof;
         public GameObject visualChild;
+        public GameObject[] visuals;
 
         private PlatformerMotor2D _motor;
         private Animator _animator;
         private bool _isJumping;
         private bool _currentFacingLeft;
+
+        public void setPerceptionAnimator( Perception perception)
+        {
+            visualChild = null;
+            for (int i =0; i < visuals.Length; ++i)
+            {
+                if (perception.animatorIndex == i)
+                {             
+                    visuals[i].SetActive(true);
+                    visualChild = visuals[i];
+                } else
+                {
+                    visuals[i].SetActive(false);
+                }
+
+            }
+        }
 
         public void CreateDust()
         {
@@ -26,7 +44,7 @@ namespace PC2D
         }
 
         // Use this for initialization
-        void Start()
+        public void CustomStart()
         {
             _motor = GetComponent<PlatformerMotor2D>();
             _animator = visualChild.GetComponent<Animator>();

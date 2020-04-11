@@ -11,7 +11,7 @@ public class Perception : ScriptableObject
     PerceptionTypes perception;
 
     //placeholder
-    public Color c;
+    public int animatorIndex;
 
     public PerceptionTypes perceptionType;
 

@@ -24,7 +24,7 @@ public class PerceptionManager : MonoBehaviour
     {
         if (instance)
         {
-            Debug.Log("Instance already created");
+            Debug.LogError("Instance already created");
         } else
         {
             instance = this;

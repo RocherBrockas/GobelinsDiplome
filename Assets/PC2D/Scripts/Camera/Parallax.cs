@@ -19,7 +19,7 @@ public class Parallax : MonoBehaviour
     }   
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         float dist = (Camera.transform.position.x * parallaxRatio);
 

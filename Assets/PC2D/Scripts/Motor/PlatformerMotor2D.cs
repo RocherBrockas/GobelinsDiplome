@@ -3483,6 +3483,8 @@ public class PlatformerMotor2D : MonoBehaviour
     {
         if (perception != null)
         {
+            this.GetComponent<PlatformerAnimation2D>().setPerceptionAnimator(perception);
+            this.GetComponent<PlatformerAnimation2D>().CustomStart();
             groundSpeed = perception.groundSpeed;
             timeToGroundSpeed = perception.acceleration;
             groundStopDistance = perception.groundStopDistance;
