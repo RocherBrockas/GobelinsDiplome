@@ -15,4 +15,5 @@ MonoBehaviour:
   isActive: 1
   activated: 0
   nextTotems:
-  - {fileID: 11400000, guid: 8eca7855159665b4c93bec1e3a0daa7d, type: 2}
+  - {fileID: 11400000, guid: eda2e780daedc544ba868f61c74b5468, type: 2}
+  - {fileID: 11400000, guid: 1d6a022e461e6984f9efbd6f102eb964, type: 2}

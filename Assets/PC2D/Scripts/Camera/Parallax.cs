@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    private float _length, _startposX;
+    private float _startposX;
     private Vector3 newpos = new Vector3();
 
     public GameObject Camera;
@@ -15,8 +15,7 @@ public class Parallax : MonoBehaviour
     {
         newpos = Vector3.zero;
         _startposX = transform.position.x;
-        _length = GetComponent<SpriteRenderer>().bounds.size.x;
-    }   
+    }
 
     // Update is called once per frame
     void Update()

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   activated: 0
-  nextTotems: []
-  totemLocks: []
+  nextTotems:
+  - {fileID: 11400000, guid: 7837e360c90f0eb4cac470e0d3e30d25, type: 2}

@@ -74,6 +74,8 @@ MonoBehaviour:
   button: {fileID: 7723659691259528646}
   buttonsprite: {fileID: 2737704870971322156, guid: 3763ed2167f9d2642aeb3131dec05ba7,
     type: 3}
+  perceptionNeeded: 0
+  perception: 0
 --- !u!1 &7723659691259528640
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 2737704870971322156, guid: 3763ed2167f9d2642aeb3131dec05ba7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

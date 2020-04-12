@@ -38,8 +38,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Premiers plans
-    uniqueID: 1818946709
+  - name: "Arri\xE8re plan"
+    uniqueID: 553909641
     locked: 0
   - name: Default
     uniqueID: 0
@@ -50,6 +50,6 @@ TagManager:
   - name: Environment
     uniqueID: 2424245007
     locked: 0
-  - name: "Arri\xE8re plan"
-    uniqueID: 553909641
+  - name: Premiers plans
+    uniqueID: 1818946709
     locked: 0
