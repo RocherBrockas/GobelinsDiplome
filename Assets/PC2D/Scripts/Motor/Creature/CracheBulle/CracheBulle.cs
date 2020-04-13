@@ -11,6 +11,7 @@ public class CracheBulle : MonoBehaviour
     public float randomStrengthVariation;
     public PerceptionTypes AwakenPerception;
     public GameObject bulle;
+    public SpriteRenderer sprite;
 
     public PlayerController2D playerController;
 
@@ -40,6 +41,7 @@ public class CracheBulle : MonoBehaviour
                 currentBulle.transform.position = this.transform.position;
                 Debug.Log(currentBulle.transform.position);
                 currentBulle.GetComponent<Bulle>().isDestroyable = true;
+                sprite.flipX = faceleft;
                 currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
                 currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
 

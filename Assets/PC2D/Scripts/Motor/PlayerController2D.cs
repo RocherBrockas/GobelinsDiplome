@@ -164,13 +164,11 @@ public class PlayerController2D : MonoBehaviour
 
         if (Input.GetButtonDown(PC2D.Input.INSPIRE))
         {
-            if (_canInspire)
-            {
-                inspireRange.SetActive(true);
-                StartCoroutine(InspireCooldown());
-                //Debug.Log(inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception);
-
-            }
+            //if (_canInspire)
+            //{
+            //    inspireRange.SetActive(true);
+            //    StartCoroutine(InspireCooldown());
+            //}
 
         }
     }
@@ -185,10 +183,10 @@ public class PlayerController2D : MonoBehaviour
                 if (collision.gameObject.GetComponent<Totem>() != null)
                 {
                     Totem totem = collision.gameObject.GetComponent<Totem>();
-                    if (totem.totemMemory.isActive)
+                    if (totem.isActive)
                     {
                         PerceptionManager.instance.activeTotem = totem;
-                        if (!totem.totemMemory.activated)
+                        if (!totem.activated)
                         {
                             totem.totemMemory.ActivateFlux();
                             totem.ActivateFlux();
@@ -210,10 +208,10 @@ public class PlayerController2D : MonoBehaviour
                 if (collision.gameObject.GetComponent<Totem>() != null)
                 {
                     Totem totem = collision.gameObject.GetComponent<Totem>();
-                    if (totem.totemMemory.isActive)
+                    if (totem.isActive)
                     {
                         PerceptionManager.instance.activeTotem = totem;
-                        if (!totem.totemMemory.activated)
+                        if (!totem.activated)
                         {
                             collision.gameObject.GetComponent<Totem>().totemMemory.ActivateFlux();
                             totem.ActivateFlux();

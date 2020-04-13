@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2d85452c2d81948a261ef4617f1fb2, type: 3}
   m_Name: Totem Dans la grotte du lac
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
   activated: 0
   nextTotems: []

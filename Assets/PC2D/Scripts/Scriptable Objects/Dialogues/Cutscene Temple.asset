@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6789cacf67b2bb0419571f37ba74340a, type: 3}
+  m_Name: Cutscene Temple
+  m_EditorClassIdentifier: 
+  texte:
+  - "Autrefois existait Kholia.\r\n\r\nC\u2019\xE9tait un \xEAtre autrefois plein
+    de r\xEAves et d\u2019esp\xE9rances, ab\xEEm\xE9 par le temps. Au paroxysme de
+    son d\xE9clin, et par l\u2019expression de l\u2019irrationnel, il pleura. Il
+    pleura d\u2019une unique larme, et cette larme devint ciel, et le ciel pleura
+    \xE0 son tour, jusqu\u2019aux passions, immergeant le monde. \r\n\r\nSes humeurs
+    s\u2019alt\xE9r\xE8rent. Son coeur se dess\xE9cha, s\u2019emplissant de la couleur
+    poisseuse de la bile noire. Elle coula dans ses fissures, dans ses blessures
+    encore fra\xEEches, l\u2019usant, le rongeant de l\u2019int\xE9rieur, comme le
+    sel \xE9rode les falaises. Alors, Kholia se disloqua et il tomba en morceaux.
+    La mer de larmes prit le sentiment de l\u2019infini, et chaque partie de lui-m\xEAme
+    emporta un peu de son \xE2me, la perdant pendant des mill\xE9naires."
+  - "La l\xE9gende raconte qu\u2019une voix l\u2019invita \xE0 baisser les yeux pour
+    comprendre la haute signification du monde. Ainsi, le regard de Kholia toucha
+    la surface de l\u2019eau. Il y vit son reflet. Et dans les \xE9pines qu\u2019\xE9tait
+    devenu son corps, tels les bords tranchants d\u2019un miroir bris\xE9, apportant
+    le malheur, il y vit la beaut\xE9. Il prit alors son coeur dans sa main, et le
+    fit sanctuaire. Ainsi, il l\u2019offrit au monde, afin que le monde puisse venir
+    glorifier ses blessures anciennes. \r\n\r\nLib\xE9r\xE9 de son coeur alourdi,
+    Kholia s\u2019envola. Plus haut que la cime des arbres, plus haut que les montagnes,
+    plus haut que ce qui fut cr\xE9\xE9. Sur son passage, sa pl\xE9nitude nouvelle
+    redonna vie au monde, qui se remit \xE0 tourner, en rond, en plein, ondulant,
+    navigant. Et Kholia y vit des cr\xE9atures grouillantes, rampantes. Des grandes
+    et des petites et des plus modestes, et des rondes et des longues et des filandreuses.
+    Il les vit s\u2019activer, remuer, s'agripper et renoncer. Il les vit \xE0 deux,
+    et seules, en bandes. Il les vit ordonn\xE9es, en cadence, en canon, en symbiose.
+    \r\n"
+  - "Kholia compris la haute signification.\r\nIl \xE9tait le Vivant. Il faisait
+    partie d\u2019un tout. \r\n"

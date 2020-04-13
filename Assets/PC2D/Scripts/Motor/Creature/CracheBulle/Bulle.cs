@@ -12,6 +12,7 @@ public class Bulle : MonoBehaviour
     public float forceLancement;
     private Vector2 force;
     private bool _containsPlayer = false;
+    public GameObject Sprite;
 
     public LayerMask collisionMask;
     private PlayerController2D _playerController;
@@ -21,6 +22,7 @@ public class Bulle : MonoBehaviour
     public void Pop()
     {
         bwc.destroyWithBubble();
+        Destroy(Sprite);
         if (_containsPlayer)
         {
             this.transform.DetachChildren();

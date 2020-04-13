@@ -44,11 +44,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 2835396835
-    locked: 0
   - name: Environment
     uniqueID: 2424245007
+    locked: 0
+  - name: Player
+    uniqueID: 2835396835
     locked: 0
   - name: Premiers plans
     uniqueID: 1818946709
