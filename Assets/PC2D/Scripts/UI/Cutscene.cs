@@ -22,8 +22,10 @@ public class Cutscene : MonoBehaviour
 
         canInput = false;
         textBoxCount = 0;
-        StartCoroutine(cutsceneDelay(5f));
+        StartCoroutine(cutsceneDelay(0.5f));
         textBox.text = dialogue.texte[textBoxCount];
+        UI.SetTrigger("Start");
+        textUI.SetTrigger("Start");
 
 
     }
@@ -32,8 +34,7 @@ public class Cutscene : MonoBehaviour
     {
         if (startCutscene && !endcutscene)
         {
-            UI.SetTrigger("Start");
-            textUI.SetTrigger("Start");
+
             if (canInput)
             {
                 if (UnityEngine.Input.GetButtonDown(PC2D.Input.JUMP))
@@ -45,7 +46,8 @@ public class Cutscene : MonoBehaviour
                         textUI.SetTrigger("Fade");
                         textBox.text = dialogue.texte[textBoxCount];
                         textUI.SetTrigger("Start");
-                        StartCoroutine(cutsceneDelay(3.0f));
+                        StartCoroutine(cutsceneDelay(0.5f));
+
                     }
                     else
                     {

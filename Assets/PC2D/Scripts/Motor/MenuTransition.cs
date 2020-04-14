@@ -10,6 +10,11 @@ public class MenuTransition : MonoBehaviour
     public LevelLoader LevelLoader;
     public string sceneToLoad;
 
+    private void Start()
+    {
+        AudioManager.instance.Play("BackGround Theme");
+    }
+
     public void StartGame()
     {
         positionStorage.initialValue = startposition.initialValue;

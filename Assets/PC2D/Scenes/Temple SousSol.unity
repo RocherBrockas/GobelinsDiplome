@@ -384,12 +384,12 @@ PrefabInstance:
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 96.83392
+      value: 96.83393
       objectReference: {fileID: 0}
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.628326
+      value: 32.628487
       objectReference: {fileID: 0}
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
@@ -2166,7 +2166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 702844103, guid: f53f0e5cd92ba5148aace93d59b06aaf, type: 3}
       propertyPath: maxScaleRange
-      value: 35
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f53f0e5cd92ba5148aace93d59b06aaf, type: 3}
@@ -2643,7 +2643,7 @@ Transform:
   - {fileID: 848151181}
   - {fileID: 1831787697}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037092480
 GameObject:
@@ -3127,7 +3127,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buttonsprite
       value: 
-      objectReference: {fileID: 2732534935862583973, guid: 3763ed2167f9d2642aeb3131dec05ba7,
+      objectReference: {fileID: 21300000, guid: 0e2e2fa7b14263c41a2836fd98137051,
         type: 3}
     - target: {fileID: 7723659691074477382, guid: 20320d83b2c879640bf36be7a655d9ea,
         type: 3}
@@ -3143,6 +3143,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tuto UI Short
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723659691259528647, guid: 20320d83b2c879640bf36be7a655d9ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723659691259528647, guid: 20320d83b2c879640bf36be7a655d9ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723659691259528647, guid: 20320d83b2c879640bf36be7a655d9ea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25257117
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723659691259528647, guid: 20320d83b2c879640bf36be7a655d9ea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25257117
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723659691259528647, guid: 20320d83b2c879640bf36be7a655d9ea,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1098422
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20320d83b2c879640bf36be7a655d9ea, type: 3}
@@ -4629,7 +4654,7 @@ MonoBehaviour:
   totemLocks: []
   mask: {fileID: 525279587}
   activatedSprite: {fileID: 21300000, guid: 749148e4cce5927428bd9f82a838bac2, type: 3}
-  Passage: "De ton oeil neuf, tu conf\xE9reras la dignit\xE9 de l\u2019inconnu \xE0
+  Passage: "De ton oeil neuf,\ntu conf\xE9reras la dignit\xE9 de l\u2019inconnu \xE0
     ce qui t'est familier."
   canvasGroup: {fileID: 1143943873}
   textmesh: {fileID: 196388276}
@@ -5051,6 +5076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711672668235563578, guid: 1beb21b27aaf6b4419b857e031157ff9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1888.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1beb21b27aaf6b4419b857e031157ff9, type: 3}

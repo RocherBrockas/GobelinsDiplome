@@ -55,10 +55,11 @@ public class Bulle : MonoBehaviour
         }
         if (goDown)
         {
-            if (rb.velocity.magnitude < speedThreshold)
-            {
-                rb.AddForce(Vector2.up * -floatBoost/4);
-            }
+            rb.velocity = Vector2.zero;
+                //if (rb.velocity.magnitude < speedThreshold)
+                //{
+                //    rb.AddForce(Vector2.up * -floatBoost / 4);
+                //}
         }
 
         if (isDestroyable)
@@ -91,11 +92,12 @@ public class Bulle : MonoBehaviour
                 _playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (!_playerController.isInBubble)
                 {
-                _playerController.isInBubble = true;
-                _playerController.Setbubble(this);
-                this.GetComponent<CircleCollider2D>().isTrigger = true;
-                _containsPlayer = true;
-                isDestroyable = true;
+                    AudioManager.instance.Play("bubble enter");
+                    _playerController.isInBubble = true;
+                    _playerController.Setbubble(this);
+                    this.GetComponent<CircleCollider2D>().isTrigger = true;
+                    _containsPlayer = true;
+                    isDestroyable = true;
                 }
             }
         }

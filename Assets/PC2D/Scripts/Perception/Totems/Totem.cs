@@ -26,6 +26,7 @@ public class Totem : PerceptionZone
         activated = true;
         if (!cutsceneTotem)
         {
+            AudioManager.instance.Play("Totem");
             this.GetComponent<SpriteRenderer>().sprite = activatedSprite;
         }
         mask.SetActive(false);

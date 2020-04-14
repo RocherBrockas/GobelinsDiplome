@@ -1567,6 +1567,7 @@ public class PlatformerMotor2D : MonoBehaviour
                 _platformerAnimation2D.LandingPoof.Play();
                 if (onLanded != null)
                 {
+                    AudioManager.instance.Play("Jump");
                     onLanded();
                 }
             }

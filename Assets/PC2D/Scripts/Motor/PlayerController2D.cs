@@ -156,6 +156,8 @@ public class PlayerController2D : MonoBehaviour
         {
             if (_canInspire)
             {
+                if (perceptionManager.perception.perceptionType != PC2D.PerceptionTypes.Death)
+                    AudioManager.instance.Play("Expiration");
                 expireRange.transform.position = this.transform.position + Vector3.up;
                 expireRange.SetActive(true);
                 StartCoroutine(ExpireCooldown());
