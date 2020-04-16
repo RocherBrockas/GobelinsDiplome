@@ -25,7 +25,7 @@ public class CracheBulle : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(this.transform.position);
+        //Debug.Log(this.transform.position);
         _force = new Vector2(bulleLaunchStrength, 0);
     }
 
@@ -39,7 +39,7 @@ public class CracheBulle : MonoBehaviour
                 faceleft = (playerController.transform.position.x < this.transform.position.x);
                 GameObject currentBulle = Instantiate(bulle);
                 currentBulle.transform.position = this.transform.position;
-                Debug.Log(currentBulle.transform.position);
+                //Debug.Log(currentBulle.transform.position);
                 currentBulle.GetComponent<Bulle>().isDestroyable = true;
                 sprite.flipX = faceleft;
                 currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
@@ -60,7 +60,7 @@ public class CracheBulle : MonoBehaviour
         {
             if (collisionMask == (collisionMask| (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
             {
-                Debug.Log("Activate crache bulle");
+                //Debug.Log("Activate crache bulle");
                 isActive = true;
             }
         }

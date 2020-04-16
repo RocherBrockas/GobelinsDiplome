@@ -1588,7 +1588,13 @@ public class PlatformerMotor2D : MonoBehaviour
 
         if (_velocity.y > 0 && HasFlag(CollidedSurface.Ceiling))
         {
-            _velocity.y = 0;
+            if (fallSpeed < 0)
+            {
+
+            } else
+            {
+                _velocity.y = 0;
+            }
         }
 
         if (IsGrounded())

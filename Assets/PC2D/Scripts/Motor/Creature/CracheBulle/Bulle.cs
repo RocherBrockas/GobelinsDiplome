@@ -52,14 +52,21 @@ public class Bulle : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * floatBoost);
             }
+            else
+            {
+                rb.velocity.Set(Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold), Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold));
+            }
         }
         if (goDown)
         {
-            rb.velocity = Vector2.zero;
-                //if (rb.velocity.magnitude < speedThreshold)
-                //{
-                //    rb.AddForce(Vector2.up * -floatBoost / 4);
-                //}
+            if (rb.velocity.magnitude < speedThreshold)
+            {
+                rb.AddForce(Vector2.up * -floatBoost / 4);
+            }
+            else
+            {
+                rb.velocity.Set(Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold), Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold));
+            }
         }
 
         if (isDestroyable)

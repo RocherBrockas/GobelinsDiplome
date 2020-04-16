@@ -43,4 +43,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb0ac9371db34944b2eca405468de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: BackGround Theme
+    clip: {fileID: 8300000, guid: 31fcdec4ccf4ab34dab27960fa94364a, type: 3}
+    loop: 1
+    volume: 0.502
+    pitch: 1
+    source: {fileID: 0}
+  - name: bubble enter
+    clip: {fileID: 8300000, guid: bcd3d9e0207713244a3cccff3a29f92e, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Expiration
+    clip: {fileID: 8300000, guid: fbd1bf58f56bff54a9ba8b1cfd6c37f4, type: 3}
+    loop: 0
+    volume: 0.666
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 5c5e5dbdc83669e43a244d5ad45eac33, type: 3}
+    loop: 0
+    volume: 0.701
+    pitch: 1
+    source: {fileID: 0}
+  - name: Totem
+    clip: {fileID: 8300000, guid: becf75f9abd36d94db02c5278d691b5f, type: 3}
+    loop: 0
+    volume: 0.804
+    pitch: 1
+    source: {fileID: 0}
