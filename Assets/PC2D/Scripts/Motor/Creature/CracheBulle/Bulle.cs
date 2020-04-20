@@ -92,21 +92,25 @@ public class Bulle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) && collision.collider.CompareTag("Player"))
+        if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) )
         {
-            if (collision.gameObject.GetComponent<PlayerController2D>() != null)
+            if (collision.collider.CompareTag("Player"))
             {
-                _playerController = collision.gameObject.GetComponent<PlayerController2D>();
-                if (!_playerController.isInBubble)
+                if (collision.gameObject.GetComponent<PlayerController2D>() != null)
                 {
-                    AudioManager.instance.Play("bubble enter");
-                    _playerController.isInBubble = true;
-                    _playerController.Setbubble(this);
-                    this.GetComponent<CircleCollider2D>().isTrigger = true;
-                    _containsPlayer = true;
-                    isDestroyable = true;
+                    _playerController = collision.gameObject.GetComponent<PlayerController2D>();
+                    if (!_playerController.isInBubble)
+                    {
+                        AudioManager.instance.Play("bubble enter");
+                        _playerController.isInBubble = true;
+                        _playerController.Setbubble(this);
+                        this.GetComponent<CircleCollider2D>().isTrigger = true;
+                        _containsPlayer = true;
+                        isDestroyable = true;
+                    }
                 }
             }
+
         }
     }
 }

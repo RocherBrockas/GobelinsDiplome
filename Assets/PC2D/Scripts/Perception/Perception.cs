@@ -35,7 +35,8 @@ public class Perception : ScriptableObject
     public float fastFallSpeed;
     public float fastFallGravity;
     public float jumpHeigth;
-    public float extraJumpHeigth;
+    public float heldJumpHeigth;
+    public float airJumpHeigth;
     public int numberOfAirJumps;
 
     //Slopes ?

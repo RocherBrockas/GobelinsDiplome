@@ -127,6 +127,11 @@ public class PlatformerMotor2D : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     /// <summary>
+    /// The height the motor will jump when an air jump command is issued.
+    /// </summary>
+    public float airJumpHeight = .5f;
+
+    /// <summary>
     /// The extra height the motor will jump if jump is 'held' down.
     /// </summary>
     public float extraJumpHeight = 1.5f;
@@ -654,6 +659,7 @@ public class PlatformerMotor2D : MonoBehaviour
         _jumping.pressed = true;
         _jumping.timeToldFrames = GetFrameCount(jumpWindowWhenActivated);
         _jumping.height = jumpHeight;
+        _jumping.airHeigth = airJumpHeight;
 
         // Consider jumping held in case there are multiple fixed ticks before the next update tick.
         // This is useful as jumpingHeld may not be set to true with a GetButton() call.
@@ -1119,6 +1125,7 @@ public class PlatformerMotor2D : MonoBehaviour
 
         public bool force;
         public float height;
+        public float airHeigth;
 
         public float jumpGraceFrames;
         public bool jumpTypeChanged;
@@ -2121,7 +2128,7 @@ public class PlatformerMotor2D : MonoBehaviour
             }
             else if (_jumping.numAirJumps < numOfAirJumps)
             {
-                _velocity.y = CalculateSpeedNeeded(_jumping.height);
+                _velocity.y = CalculateSpeedNeeded(_jumping.airHeigth);
                 _jumping.numAirJumps++;
 
                 if (onAirJump != null)
@@ -3503,7 +3510,7 @@ public class PlatformerMotor2D : MonoBehaviour
             fastFallSpeed = perception.fastFallSpeed;
             fastFallGravityMultiplier = perception.fastFallGravity;
             jumpHeight = perception.jumpHeigth;
-            extraJumpHeight = perception.extraJumpHeigth;
+            extraJumpHeight = perception.heldJumpHeigth;
             numOfAirJumps = perception.numberOfAirJumps;
             enableWallJumps = perception.enableWallJump;
             enableWallSticks = perception.enableWallStick;
