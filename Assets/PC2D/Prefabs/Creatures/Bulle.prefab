@@ -230,6 +230,9 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3207418603289681868
 GameObject:
   m_ObjectHideFlags: 0

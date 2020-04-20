@@ -20,19 +20,20 @@ MonoBehaviour:
   poofDuration: 0.5
   poofCharge: 0
   canInspire: 0
-  groundSpeed: 8.5
+  groundSpeed: 10
   acceleration: 0.02
   groundStopDistance: 0.5
-  airSpeed: 8.5
+  airSpeed: 10
   airAcceleration: 0.02
   airStopDistance: 2
-  fallSpeed: 25
+  fallSpeed: 20
   gravityMultiplier: 5
   fastFallSpeed: 32
   fastFallGravity: 5
-  jumpHeigth: 2.75
-  extraJumpHeigth: 0
-  numberOfAirJumps: 0
+  jumpHeigth: 1.5
+  heldJumpHeigth: 1.5
+  airJumpHeigth: 0.25
+  numberOfAirJumps: 1
   enableWallJump: 0
   enableWallStick: 0
   enableWallSlide: 0

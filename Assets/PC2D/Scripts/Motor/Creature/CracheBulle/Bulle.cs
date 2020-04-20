@@ -15,6 +15,7 @@ public class Bulle : MonoBehaviour
     public GameObject Sprite;
 
     public LayerMask collisionMask;
+    public LayerMask triggerMask;
     private PlayerController2D _playerController;
     private Rigidbody2D rb;
     private bulleWaterCheck bwc;
@@ -54,7 +55,7 @@ public class Bulle : MonoBehaviour
             }
             else
             {
-                rb.velocity.Set(Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold), Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold));
+                rb.velocity.Set(Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold), Mathf.Sqrt(rb.velocity.normalized.y * speedThreshold));
             }
         }
         if (goDown)
@@ -90,10 +91,21 @@ public class Bulle : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (triggerMask == (triggerMask| (1 << collision.gameObject.layer)))
+        {
+            if (_containsPlayer)
+            _playerController.JumpOutOfBubble();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) )
         {
+
             if (collision.collider.CompareTag("Player"))
             {
                 if (collision.gameObject.GetComponent<PlayerController2D>() != null)
@@ -110,7 +122,6 @@ public class Bulle : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 }
