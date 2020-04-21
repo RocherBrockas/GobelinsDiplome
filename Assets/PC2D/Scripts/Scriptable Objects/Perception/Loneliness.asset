@@ -32,7 +32,7 @@ MonoBehaviour:
   fastFallGravity: 5
   jumpHeigth: 1.5
   heldJumpHeigth: 1.5
-  airJumpHeigth: 0.25
+  airJumpHeigth: 25
   numberOfAirJumps: 1
   enableWallJump: 0
   enableWallStick: 0
