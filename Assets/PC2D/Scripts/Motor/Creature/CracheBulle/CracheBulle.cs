@@ -60,8 +60,11 @@ public class CracheBulle : MonoBehaviour
         {
             if (collisionMask == (collisionMask| (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
             {
-                //Debug.Log("Activate crache bulle");
+                Debug.Log("Activate crache bulle");
                 isActive = true;
+            } else
+            {
+                Debug.Log("smthing collided crache bulle");
             }
         }
     }

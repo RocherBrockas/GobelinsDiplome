@@ -166,11 +166,11 @@ public class PlayerController2D : MonoBehaviour
 
         if (Input.GetButtonDown(PC2D.Input.INSPIRE))
         {
-            //if (_canInspire)
-            //{
-            //    inspireRange.SetActive(true);
-            //    StartCoroutine(InspireCooldown());
-            //}
+            if (_canInspire)
+            {
+                inspireRange.SetActive(true);
+                StartCoroutine(InspireCooldown());
+            }
 
         }
     }
@@ -200,9 +200,11 @@ public class PlayerController2D : MonoBehaviour
                 }
                 else
                 {
-                    perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
-
-                    _motor.AbilityChange(perceptionManager.perception);
+                    if (collision.gameObject.GetComponent<PerceptionZone>().needCollidingChange)
+                    {
+                        perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
+                        _motor.AbilityChange(perceptionManager.perception);
+                    }
                 }
             }
             else
@@ -257,6 +259,11 @@ public class PlayerController2D : MonoBehaviour
             }
         }
         _canInspire = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+            Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

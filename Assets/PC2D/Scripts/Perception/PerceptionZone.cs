@@ -7,4 +7,5 @@ public class PerceptionZone : MonoBehaviour
 {
     public Perception perception;
     public bool canBeInspired;
+    public bool needCollidingChange;
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
   groundSpeed: 7
   acceleration: 0.5
   groundStopDistance: 0.05
-  airSpeed: 5
+  airSpeed: 7
   airAcceleration: 0.4
   airStopDistance: 3
   fallSpeed: 15
@@ -31,9 +31,9 @@ MonoBehaviour:
   fastFallSpeed: 32
   fastFallGravity: 5.99
   jumpHeigth: 1.75
-  heldJumpHeigth: 0
-  airJumpHeigth: 0
-  numberOfAirJumps: 0
+  heldJumpHeigth: 1
+  airJumpHeigth: 0.1
+  numberOfAirJumps: 1
   enableWallJump: 0
   enableWallStick: 0
   enableWallSlide: 0
