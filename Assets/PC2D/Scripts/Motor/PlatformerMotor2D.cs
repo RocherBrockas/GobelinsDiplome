@@ -1575,7 +1575,15 @@ public class PlatformerMotor2D : MonoBehaviour
                 if (onLanded != null)
                 {
                     AudioManager.instance.Play("Jump");
-                    onLanded();
+                    //Check to not make the character land when touching the ground with negative falling speed (water)
+                    if (fallSpeed < 0f)
+                    {
+                        ForceJump();
+                        motorState = MotorState.Falling;
+                    } else
+                    {
+                        onLanded();
+                    }
                 }
             }
         }
