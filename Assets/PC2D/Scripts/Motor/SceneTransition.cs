@@ -9,11 +9,27 @@ public class SceneTransition : MonoBehaviour
     public Vector2 playerPosition;
     public LoadPositions positionStorage;
     public LevelLoader LevelLoader;
+    public bool door;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") & !collision.isTrigger)
         {
+            if (!door)
+            {
+                positionStorage.initialValue = playerPosition;
+                positionStorage.perception = PerceptionManager.instance.perception;
+                LevelLoader.LoadNextLevel(sceneToLoad);
+            }
+        }
+        
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if( door && collision.CompareTag("Player") & !collision.isTrigger && (Input.GetAxis(PC2D.Input.VERTICAL) > 0))
+        {
+            Debug.Log("Up");
             positionStorage.initialValue = playerPosition;
             positionStorage.perception = PerceptionManager.instance.perception;
             LevelLoader.LoadNextLevel(sceneToLoad);

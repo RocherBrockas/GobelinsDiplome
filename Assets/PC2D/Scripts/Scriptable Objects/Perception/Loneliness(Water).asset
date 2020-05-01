@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0eb2073821c7c445922c9d843cee35f, type: 3}
   m_Name: Loneliness(Water)
   m_EditorClassIdentifier: 
-  c: {r: 0.22352943, g: 0.9333334, b: 0.92549026, a: 0}
+  animatorIndex: 0
   perceptionType: 2
   inspireCooldown: 0.5
   expireCooldown: 4
@@ -26,12 +26,13 @@ MonoBehaviour:
   airSpeed: 8.5
   airAcceleration: 0.1
   airStopDistance: 2
-  fallSpeed: -4.5
+  fallSpeed: -6.55
   gravityMultiplier: 2
   fastFallSpeed: 32
   fastFallGravity: 4
   jumpHeigth: 1.5
-  extraJumpHeigth: 1.5
+  heldJumpHeigth: 0
+  airJumpHeigth: 0
   numberOfAirJumps: 0
   enableWallJump: 0
   enableWallStick: 0

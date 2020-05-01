@@ -13,6 +13,7 @@ public class TutoFade : MonoBehaviour
     private float _fadeRatio;
     private Vector3 pos;
     private Color C = Color.white;
+    public bool snap;
 
     private void Start()
     {
@@ -26,7 +27,10 @@ public class TutoFade : MonoBehaviour
         {
             if (!perceptionNeeded || PerceptionManager.instance.perception.perceptionType == perception)
             {
-                button.gameObject.transform.position = collision.transform.position + Vector3.up * 4;
+                if (!snap)
+                {
+                    button.gameObject.transform.position = collision.transform.position + Vector3.up * 4;
+                }
                 C.a = 0;
                 button.color = C;
                 button.sprite = buttonsprite;
@@ -41,7 +45,10 @@ public class TutoFade : MonoBehaviour
             if (!perceptionNeeded || PerceptionManager.instance.perception.perceptionType == perception)
             {
                 C.a = 1 - Mathf.Abs((button.gameObject.transform.position.x - pos.x) / _hitboxSize);
-                button.gameObject.transform.position = collision.transform.position + Vector3.up * 4;
+                if (!snap)
+                {
+                    button.gameObject.transform.position = collision.transform.position + Vector3.up * 4;
+                }
                 button.color = C;
             }
         }
@@ -54,9 +61,7 @@ public class TutoFade : MonoBehaviour
             {
                 C.a = 0;
                 button.color = C;
-
             }
         }
     }
-
 }

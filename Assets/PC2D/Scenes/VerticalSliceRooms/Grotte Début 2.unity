@@ -2574,12 +2574,12 @@ PrefabInstance:
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8076634
+      value: 5.8148675
       objectReference: {fileID: 0}
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1171365
+      value: 4.117175
       objectReference: {fileID: 0}
     - target: {fileID: 7011913302807612287, guid: 2d785393794fedf44beeaf7ccd3400e0,
         type: 3}
@@ -4347,7 +4347,7 @@ PrefabInstance:
     - target: {fileID: 985911268790382724, guid: ca4168d6ecdb249449ba9a7b584840fe,
         type: 3}
       propertyPath: sceneToLoad
-      value: Lac Playtest
+      value: Lac Zone Principale
       objectReference: {fileID: 0}
     - target: {fileID: 985911268790382724, guid: ca4168d6ecdb249449ba9a7b584840fe,
         type: 3}
