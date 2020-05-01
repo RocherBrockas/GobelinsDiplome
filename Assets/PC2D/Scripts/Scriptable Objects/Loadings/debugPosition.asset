@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: debugPosition
   m_EditorClassIdentifier: 
   initialValue: {x: 17, y: 12}
-  perception: {fileID: 11400000, guid: 655abf653700ea34898655c09b8fa9a1, type: 2}
+  perception: {fileID: 11400000, guid: ce0c586550e0a53478c15f99c33361b6, type: 2}
