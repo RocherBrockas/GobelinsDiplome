@@ -12,6 +12,7 @@ public class CracheBulle : MonoBehaviour
     public PerceptionTypes AwakenPerception;
     public GameObject bulle;
     public SpriteRenderer sprite;
+    public FluxMemory trigger;
 
     public PlayerController2D playerController;
 
@@ -26,6 +27,10 @@ public class CracheBulle : MonoBehaviour
     private void Start()
     {
         //Debug.Log(this.transform.position);
+        if (trigger != null)
+        {
+            isActive = trigger.active;
+        }
         _force = new Vector2(bulleLaunchStrength, 0);
     }
 
@@ -63,6 +68,23 @@ public class CracheBulle : MonoBehaviour
                 Debug.Log("Activate crache bulle");
                 isActive = true;
             } else
+            {
+                Debug.Log("smthing collided crache bulle");
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PoofRange>() != null)
+        {
+            if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
+            {
+                if (!trigger)
+                Debug.Log("Deactivate crache bulle");
+                isActive = false;
+            }
+            else
             {
                 Debug.Log("smthing collided crache bulle");
             }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6789cacf67b2bb0419571f37ba74340a, type: 3}
+  m_Name: Stele 1
+  m_EditorClassIdentifier: 
+  imageTop: {fileID: 21300000, guid: 3d6f148ca5a3444468cc7f0fec69fc71, type: 3}
+  phraseBottom: {fileID: 21300000, guid: 46a9ac72e98b49549b01a89df9173b48, type: 3}
+  texte:
+  - "Autrefois existait Kholia.\r\n\r\nC\u2019\xE9tait un \xEAtre plein de r\xEAves
+    et d\u2019esp\xE9rances, ab\xEEm\xE9 par le temps. Au paroxysme de son d\xE9clin,
+    et par l\u2019expression de l\u2019irrationnel, il pleura. Il pleura d\u2019une
+    unique larme, et cette larme devint ciel, et le ciel pleura \xE0 son tour, jusqu\u2019aux
+    passions, immergeant le monde. \r\n"

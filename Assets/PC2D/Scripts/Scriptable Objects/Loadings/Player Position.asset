@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dd5f11bf85e0643bc6367a85fd6402, type: 3}
   m_Name: Player Position
   m_EditorClassIdentifier: 
-  initialValue: {x: 5, y: 30}
-  perception: {fileID: 11400000, guid: 3d0cfe74e848f044da3697b17e1675c6, type: 2}
+  initialValue: {x: 75, y: 33}
+  perception: {fileID: 11400000, guid: ce0c586550e0a53478c15f99c33361b6, type: 2}

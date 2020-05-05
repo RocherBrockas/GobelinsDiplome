@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 11405038}
   - component: {fileID: 2111306091}
   - component: {fileID: 2111306086}
+  - component: {fileID: 7334888449887451610}
   m_Layer: 0
   m_Name: Basic Player Controller
   m_TagString: Player
@@ -105,6 +106,7 @@ MonoBehaviour:
   fastFallGravityMultiplier: 4
   ladderSpeed: 5
   jumpHeight: 1.5
+  airJumpHeight: 0.5
   extraJumpHeight: 1.5
   numOfAirJumps: 1
   jumpWindowWhenFalling: 0.2
@@ -222,6 +224,47 @@ MonoBehaviour:
   enablePoof: 1
   enableInspire: 1
   canInspire: 0
+--- !u!114 &7334888449887451610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 89fd0321000000000f0b7f90e3b800a995ec6a6c
+  m_ShapePath:
+  - {x: -0.70384675, y: 0.82440555, z: 0}
+  - {x: -0.30706605, y: 0.71985364, z: 0}
+  - {x: 0.2581482, y: 0.69875467, z: 0}
+  - {x: 0.6073939, y: 0.8804078, z: 0}
+  - {x: 0.71908337, y: 0.46855152, z: 0}
+  - {x: 0.83775395, y: 0.49647415, z: 0}
+  - {x: 1.0820751, y: 0.8734271, z: 0}
+  - {x: 0.90755993, y: 2.3323743, z: 0}
+  - {x: 0.87265706, y: 2.520851, z: 0}
+  - {x: 0.7400253, y: 2.6814053, z: 0}
+  - {x: 0.5934327, y: 2.6255603, z: 0}
+  - {x: 0.49570408, y: 2.4021811, z: 0}
+  - {x: 0.20949885, y: 2.6604636, z: 0}
+  - {x: -0.014095508, y: 2.7610178, z: 0}
+  - {x: -0.34196928, y: 2.6046183, z: 0}
+  - {x: -0.6072324, y: 2.3184135, z: 0}
+  - {x: -0.8375925, y: 1.808829, z: 0}
+  - {x: -0.9841852, y: 1.3760309, z: 0}
+  - {x: -0.90628445, y: 1.0298271, z: 0}
+  m_ShapePathHash: -1137119753
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 75464
 --- !u!1 &173962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10015,7 +10058,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 43596d8f5083e30489b3be7be45c5eca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

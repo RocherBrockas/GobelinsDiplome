@@ -10,6 +10,7 @@ namespace PC2D
         public const string JUMP = "Jump";
         public const string POOF = "Fire1";
         public const string INSPIRE = "Fire2";
+        public const string INTERACT = "Interact";
     }
 
     public enum PerceptionTypes

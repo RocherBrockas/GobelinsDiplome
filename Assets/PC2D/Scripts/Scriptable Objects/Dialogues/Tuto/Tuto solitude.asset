@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6789cacf67b2bb0419571f37ba74340a, type: 3}
+  m_Name: Tuto solitude
+  m_EditorClassIdentifier: 
+  imageTop: {fileID: 0}
+  phraseBottom: {fileID: 21300000, guid: e886b4a8018bf3a43a1a38029564188f, type: 3}
+  texte:
+  - "Certains \xE9l\xE9ments de ce monde vous retireront l'\xE9motion qui vous anime
+    acutellement, vous ramenant a votre \xE9tat primaire : la solitude. \n\nCela
+    pourrait vous aider \xE0 progresser dans l'environnement."

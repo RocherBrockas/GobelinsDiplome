@@ -157,10 +157,11 @@ public class PlayerController2D : MonoBehaviour
             if (_canInspire)
             {
                 if (perceptionManager.perception.perceptionType != PC2D.PerceptionTypes.Death)
-                    AudioManager.instance.Play("Expiration");
-                expireRange.transform.position = this.transform.position + Vector3.up;
-                expireRange.SetActive(true);
-                StartCoroutine(ExpireCooldown());
+                {
+                    expireRange.transform.position = this.transform.position + Vector3.up;
+                    expireRange.SetActive(true);
+                    StartCoroutine(ExpireCooldown());
+                }
             }
         }
 
@@ -263,7 +264,7 @@ public class PlayerController2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

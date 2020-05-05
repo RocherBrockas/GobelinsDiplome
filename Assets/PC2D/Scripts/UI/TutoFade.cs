@@ -51,6 +51,14 @@ public class TutoFade : MonoBehaviour
                 }
                 button.color = C;
             }
+            if (UnityEngine.Input.GetButtonDown(PC2D.Input.INTERACT))
+            {
+                if (this.GetComponent<Stele>() != null)
+                {
+                    if (!this.GetComponent<Stele>().played)
+                    this.GetComponent<Stele>().DisplayUI();
+                }
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

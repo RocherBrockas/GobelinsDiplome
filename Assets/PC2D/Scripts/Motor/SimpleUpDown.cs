@@ -6,6 +6,7 @@ namespace PC2D
     {
         public float upDownAmount;
         public float speed;
+        public FluxMemory trigger;
 
         private MovingPlatformMotor2D _mpMotor;
         private float _startingY;
@@ -17,28 +18,33 @@ namespace PC2D
             _mpMotor = GetComponent<MovingPlatformMotor2D>();
             _startingY = transform.position.y;
             origin = new Vector2(transform.position.x, _startingY);
-            _mpMotor.velocity = Vector2.up * speed;
+            if (trigger.active)
+            {
+                _mpMotor.velocity = Vector2.up * speed;
+            }
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
-            if (_mpMotor.needReset && ((_startingY - _mpMotor.position.y) > 0f) && (origin.x - _mpMotor.position.x) < 0f)
-            {
-                _mpMotor.velocity = (origin - _mpMotor.position).normalized * speed;
-            }
-            else
-            {
-                _mpMotor.needReset = false;
-                if (_mpMotor.velocity.y < 0 && _startingY - _mpMotor.position.y >= upDownAmount)
+            if (trigger.active) {
+                if (_mpMotor.needReset && ((_startingY - _mpMotor.position.y) > 0f) && (origin.x - _mpMotor.position.x) < 0f)
                 {
-                    _mpMotor.position += Vector2.up * ((_startingY - _mpMotor.position.y) - upDownAmount);
-                    _mpMotor.velocity = Vector2.up * speed;
+                    _mpMotor.velocity = (origin - _mpMotor.position).normalized * speed;
                 }
-                else if (_mpMotor.velocity.y > 0 && _mpMotor.position.y - _startingY >= upDownAmount)
+                else
                 {
-                    _mpMotor.position += -Vector2.up * ((_mpMotor.position.y - _startingY) - upDownAmount);
-                    _mpMotor.velocity = -Vector2.up * speed;
+                    _mpMotor.needReset = false;
+                    if (_mpMotor.velocity.y < 0 && _startingY - _mpMotor.position.y >= upDownAmount)
+                    {
+                        _mpMotor.position += Vector2.up * ((_startingY - _mpMotor.position.y) - upDownAmount);
+                        _mpMotor.velocity = Vector2.up * speed;
+                    }
+                    else if (_mpMotor.velocity.y > 0 && _mpMotor.position.y - _startingY >= upDownAmount)
+                    {
+                        _mpMotor.position += -Vector2.up * ((_mpMotor.position.y - _startingY) - upDownAmount);
+                        _mpMotor.velocity = -Vector2.up * speed;
+                    }
                 }
             }
         }
