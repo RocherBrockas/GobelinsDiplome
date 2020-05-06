@@ -27,7 +27,7 @@ public class SceneTransition : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if( door && collision.CompareTag("Player") & !collision.isTrigger && (Input.GetButtonDown(PC2D.Input.INTERACT)))
+        if( door && collision.CompareTag("Player") & !collision.isTrigger && (Input.GetButton(PC2D.Input.INTERACT)))
         {
             Debug.Log("Up");
             positionStorage.initialValue = playerPosition;

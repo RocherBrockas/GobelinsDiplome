@@ -10,14 +10,11 @@ public class ActivateSceneLac : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (trigger.active)
-        {
             foreach(CracheBulle c in crachesbulles)
             {
-                c.isActive = true;
-                chutes.SetActive(true);
+                c.isActive = trigger.active;
+                chutes.SetActive(trigger.active);
             }
-        }
     }
 
 }

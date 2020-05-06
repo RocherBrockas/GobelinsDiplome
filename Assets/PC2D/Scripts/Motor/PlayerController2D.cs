@@ -248,6 +248,7 @@ public class PlayerController2D : MonoBehaviour
     IEnumerator InspireCooldown()
     {
         _canInspire = false;
+        inspireRange.GetComponent<inspireCollisionTrigger>().ps.Play();
         yield return new WaitForSeconds(perceptionManager.perception.inspireCooldown);
         inspireRange.SetActive(false);
         if (inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception)
@@ -264,7 +265,7 @@ public class PlayerController2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

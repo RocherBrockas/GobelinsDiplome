@@ -7,6 +7,7 @@ public class inspireCollisionTrigger : MonoBehaviour
     public bool detectedPerception = false;
     public Perception feltPerception;
     public LayerMask triggerMask;
+    public ParticleSystem ps;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

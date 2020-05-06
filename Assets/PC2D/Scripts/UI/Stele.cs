@@ -32,9 +32,10 @@ public class Stele : MonoBehaviour
         bottomImage.sprite = contenu.phraseBottom;
         AudioManager.instance.Play("Totem");
         UIAnimator.SetTrigger("Start");
+        StartCoroutine(SmallWait());
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         if (motor.frozen && played && UnityEngine.Input.GetButtonDown(PC2D.Input.INTERACT))
         {
@@ -52,9 +53,17 @@ public class Stele : MonoBehaviour
         }
     }
 
+
+
+    IEnumerator SmallWait()
+    {
+        yield return new WaitForSeconds(0.2f);
+    }
+
+
     IEnumerator WaitRead()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (!tuto)
         {
             played = false;
