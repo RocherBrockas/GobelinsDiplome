@@ -46,31 +46,99 @@ MonoBehaviour:
   sounds:
   - name: BackGround Theme
     clip: {fileID: 8300000, guid: 31fcdec4ccf4ab34dab27960fa94364a, type: 3}
+    played: 0
     loop: 1
-    volume: 0.502
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: bubble enter
     clip: {fileID: 8300000, guid: bcd3d9e0207713244a3cccff3a29f92e, type: 3}
+    played: 0
     loop: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Expiration
     clip: {fileID: 8300000, guid: fbd1bf58f56bff54a9ba8b1cfd6c37f4, type: 3}
+    played: 0
     loop: 0
     volume: 0.666
     pitch: 1
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: 5c5e5dbdc83669e43a244d5ad45eac33, type: 3}
+    played: 0
     loop: 0
     volume: 0.701
     pitch: 1
     source: {fileID: 0}
   - name: Totem
     clip: {fileID: 8300000, guid: becf75f9abd36d94db02c5278d691b5f, type: 3}
+    played: 0
     loop: 0
     volume: 0.804
+    pitch: 1
+    source: {fileID: 0}
+  - name: First theme
+    clip: {fileID: 8300000, guid: 070142f426ce84c4d95ee541e9f59356, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme1
+    clip: {fileID: 8300000, guid: aa0de572b221f4041893818faf4c12f2, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme2
+    clip: {fileID: 8300000, guid: 226f71a922131a043b35519da9654e1b, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme3
+    clip: {fileID: 8300000, guid: 5fe9839666ba56640a7a98e08c0e96bd, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme4
+    clip: {fileID: 8300000, guid: 0e0bd80a30bd76d46b0dd785befd18b8, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme5
+    clip: {fileID: 8300000, guid: 7384ebf7ba29e6a4497dbbfd0f350194, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme6
+    clip: {fileID: 8300000, guid: d8429fe4fc0c23b479ab5811e4b16744, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddTheme7
+    clip: {fileID: 8300000, guid: 4d690bc821ca9ea45aa1556b5070d351, type: 3}
+    played: 0
+    loop: 1
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: Final
+    clip: {fileID: 8300000, guid: 070142f426ce84c4d95ee541e9f59356, type: 3}
+    played: 0
+    loop: 0
+    volume: 0
     pitch: 1
     source: {fileID: 0}

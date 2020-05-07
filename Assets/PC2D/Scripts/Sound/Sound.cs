@@ -6,6 +6,7 @@ public class Sound {
 
     public string name;
     public AudioClip clip;
+    public bool played;
 
     public bool loop;
     [Range(0f,1f)]

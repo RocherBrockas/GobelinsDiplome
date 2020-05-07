@@ -264,7 +264,7 @@ MonoBehaviour:
   - {x: -0.90628445, y: 1.0298271, z: 0}
   m_ShapePathHash: -1137119753
   m_Mesh: {fileID: 0}
-  m_InstanceId: 296134
+  m_InstanceId: 40600
 --- !u!1 &173962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,11 +10495,16 @@ PrefabInstance:
     - target: {fileID: 7863444761590198093, guid: ac1a6747ced98c84fb016e6827f22f7c,
         type: 3}
       propertyPath: m_Radius
-      value: 0.38200822
+      value: 0.2562844
       objectReference: {fileID: 0}
     - target: {fileID: 7863444761590198093, guid: ac1a6747ced98c84fb016e6827f22f7c,
         type: 3}
       propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863444761590198093, guid: ac1a6747ced98c84fb016e6827f22f7c,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
