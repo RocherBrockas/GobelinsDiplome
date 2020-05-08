@@ -8,6 +8,7 @@ public class TriggerSound : MonoBehaviour
     public string[] musicToStop;
     public bool played;
 
+
     private const float volume = 0.750f;
     private void Start()
     {

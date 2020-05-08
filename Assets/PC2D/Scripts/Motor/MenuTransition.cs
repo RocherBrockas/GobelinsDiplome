@@ -12,7 +12,7 @@ public class MenuTransition : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.Play("BackGround Theme");
+        AudioManager.instance.Play("First theme");
     }
 
     public void StartGame()
@@ -22,11 +22,8 @@ public class MenuTransition : MonoBehaviour
         LevelLoader.LoadNextLevel(sceneToLoad);
     }
 
-    public void Update()
+    public void QuitGame()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            StartGame();
-        }
+        Application.Quit();
     }
 }
