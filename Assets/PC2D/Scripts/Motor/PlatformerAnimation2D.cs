@@ -13,6 +13,7 @@ namespace PC2D
         public float jumpRotationSpeed;
         public ParticleSystem dust;
         public ParticleSystem LandingPoof;
+        public ParticleSystem jump;
         public GameObject visualChild;
         public GameObject[] visuals;
 

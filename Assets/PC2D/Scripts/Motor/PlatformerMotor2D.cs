@@ -2138,9 +2138,11 @@ public class PlatformerMotor2D : MonoBehaviour
             {
                 _velocity.y = CalculateSpeedNeeded(_jumping.airHeigth);
                 _jumping.numAirJumps++;
+                _platformerAnimation2D.jump.Play();
 
                 if (onAirJump != null)
                 {
+
                     onAirJump();
                 }
             }
