@@ -26,7 +26,6 @@ public class RecupMasque : MonoBehaviour
             animUI.SetTrigger("Start");
             StartCoroutine(SmallWait(0.7f));
             this.gameObject.SetActive(false);
-            //play cutscene ui mask
         }
     }
 

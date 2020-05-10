@@ -8,7 +8,10 @@ public class CracheBulle : MonoBehaviour
     public float bulleLaunchStrength;
     public float bulleSpawnTiming;
     public float bonusLifeSpan = 240;
+    [Range(1,100)]
     public float randomStrengthVariation;
+    [Range(0,0.5f)]
+    public float randomSizeVariation;
     public PerceptionTypes AwakenPerception;
     public GameObject bulle;
     public SpriteRenderer sprite;
@@ -18,6 +21,7 @@ public class CracheBulle : MonoBehaviour
 
     private bool faceleft;
     private float _randomStrengthModifier;
+    private float _randomSizeModifier;
     public bool isActive;
     public LayerMask collisionMask;
     private float _internTiming;
@@ -41,6 +45,7 @@ public class CracheBulle : MonoBehaviour
             if (_internTiming < 0)
             {
                 _randomStrengthModifier = Random.Range(-randomStrengthVariation, randomStrengthVariation);
+                _randomSizeModifier = Random.Range(1 - randomSizeVariation, 1 + randomSizeVariation);
                 faceleft = (playerController.transform.position.x < this.transform.position.x);
                 GameObject currentBulle = Instantiate(bulle);
                 currentBulle.transform.position = this.transform.position;
@@ -48,6 +53,7 @@ public class CracheBulle : MonoBehaviour
                 currentBulle.GetComponent<Bulle>().isDestroyable = true;
                 sprite.flipX = faceleft;
                 currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
+                currentBulle.transform.localScale = currentBulle.transform.localScale * _randomSizeModifier;
                 currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
 
                 _internTiming = bulleSpawnTiming;
@@ -80,9 +86,7 @@ public class CracheBulle : MonoBehaviour
         {
             if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
             {
-                if (!trigger)
-                Debug.Log("Deactivate crache bulle");
-                isActive = false;
+                isActive = trigger.active;
             }
             else
             {

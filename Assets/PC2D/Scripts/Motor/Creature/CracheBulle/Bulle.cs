@@ -55,7 +55,7 @@ public class Bulle : MonoBehaviour
             }
             else
             {
-                rb.velocity.Set(Mathf.Sqrt(rb.velocity.normalized.x * speedThreshold), Mathf.Sqrt(rb.velocity.normalized.y * speedThreshold));
+                rb.AddForce(-rb.velocity *9.81f);
             }
         }
         if (goDown)

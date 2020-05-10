@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   played: 0
+  expirationMask:
+    serializedVersion: 2
+    m_Bits: 32768
   idle: {fileID: 328903904723246225}
   idleBack: {fileID: 1741928347759720781}
   blobiness: {fileID: 5335914500118759937}

@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PC2D/Scenes/VerticalSliceRooms/Lac Zone Principale.unity
     guid: 193a23956de843c4cb6286304285c979
+  - enabled: 1
+    path: Assets/PC2D/Scenes/VerticalSliceRooms/EndSceneVS.unity
+    guid: 797841793588b0848bcc99de00e429b5
   m_configObjects: {}

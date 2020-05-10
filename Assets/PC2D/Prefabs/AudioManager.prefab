@@ -135,10 +135,17 @@ MonoBehaviour:
     volume: 0
     pitch: 1
     source: {fileID: 0}
-  - name: Final
-    clip: {fileID: 8300000, guid: 070142f426ce84c4d95ee541e9f59356, type: 3}
+  - name: FinalIntro
+    clip: {fileID: 8300000, guid: 757346158c07ddd438c9226c1d91aca8, type: 3}
     played: 0
     loop: 0
-    volume: 0
+    volume: 0.75
+    pitch: 1
+    source: {fileID: 0}
+  - name: FinalLoop
+    clip: {fileID: 8300000, guid: e19fdd177b39b1d4c8939bd5d47d3c12, type: 3}
+    played: 0
+    loop: 1
+    volume: 0.75
     pitch: 1
     source: {fileID: 0}

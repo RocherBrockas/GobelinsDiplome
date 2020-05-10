@@ -16,7 +16,7 @@ public class bulleWaterCheck : MonoBehaviour
     {
         if(waterMask== (waterMask| (1 << collision.gameObject.layer)))
         {
-            bulle.lifespan = 180;
+            //bulle.lifespan = 180;
         }
     }
 
