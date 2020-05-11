@@ -6,34 +6,37 @@ public class RecupMasque : MonoBehaviour
 {
     public PauseMenu menu;
     public int index;
+    public bool played;
     public Animator animUI;
 
     private void Start()
     {
+        played = false;
         menu = FindObjectOfType<PauseMenu>();
         Debug.Log(menu.morceauMasque[index].activeSelf);
         if (menu.morceauMasque[index].activeSelf)
         {
-            this.gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            menu.morceauMasque[index].SetActive(true);
-            animUI.SetTrigger("Start");
-            StartCoroutine(SmallWait(0.7f));
+            played = true;
             this.gameObject.SetActive(false);
         }
     }
 
 
-    IEnumerator SmallWait( float f)
+    public void FadeIn()
     {
-        yield return new WaitForSeconds(f);
+        menu.morceauMasque[index].SetActive(true);
+        played = true;
+        this.gameObject.SetActive(false);
+        animUI.SetTrigger("Start");
+    }
+
+    public void FadeOut()
+    {
         animUI.SetTrigger("Fade");
+        //played = false;
         animUI.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
+
+
 }

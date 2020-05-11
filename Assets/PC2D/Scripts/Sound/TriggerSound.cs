@@ -24,11 +24,11 @@ public class TriggerSound : MonoBehaviour
                 Debug.Log("here");
                 foreach (string s in musicToStop)
                 {
-                    AudioManager.instance.SetVolume(s, 0f);
+                    //AudioManager.instance.SetVolume(s, 0f);
                     AudioManager.instance.Stop(s);
                 }
             }
-            AudioManager.instance.SetVolume(musicToPlay,volume);
+            AudioManager.instance.SetVolume(musicToPlay,volume, 1f);
             AudioManager.instance.SetPlayed(musicToPlay);
             played = true;
         } 

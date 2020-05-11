@@ -25,7 +25,7 @@ public class TriggerMusicWithIntro : MonoBehaviour
                 Debug.Log("here");
                 foreach (string s in musicToStop)
                 {
-                    AudioManager.instance.SetVolume(s, 0f);
+                    //AudioManager.instance.SetVolume(s, 0f);
                     AudioManager.instance.Stop(s);
                 }
             }

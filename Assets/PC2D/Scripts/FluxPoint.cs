@@ -20,7 +20,6 @@ public class FluxPoint : MonoBehaviour
     public FluxMemory prevFM;
     public GameObject ParcoursFlux;
     public GameObject PreviousFlux;
-    private bool needExpiration;
 
     private void Deactivate()
     {
@@ -33,11 +32,9 @@ public class FluxPoint : MonoBehaviour
 
     void Start()
     {
-        needExpiration = false;
         if (PreviousFlux)
         {
             PreviousFlux.SetActive(prevFM.active);
-            needExpiration = true;
             Deactivate();
         }
         if (!FluxMemory.active)
@@ -64,7 +61,7 @@ public class FluxPoint : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!played && ((!needExpiration && collision.CompareTag("Player") || needExpiration && (expirationMask == (expirationMask | (1 << collision.gameObject.layer))))))
+        if (!played && (( collision.CompareTag("Player") || (expirationMask == (expirationMask | (1 << collision.gameObject.layer))))))
         {
             if (PerceptionManager.instance.perception.perceptionType == perception)
             {

@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void SetVolume(string name, float volume)
+    public void SetVolume(string name, float volume, float FadeinTime)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
 
         }
         if (s.source.isPlaying)
-            s.source.volume = volume;
+            StartCoroutine(FadeIn(s.source, volume, FadeinTime));
     }
 
     public void Stop(string name)
@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
             return;
 
         }
-        s.source.Stop();
+        StartCoroutine(FadeOut(s.source, 1f));
     }
 
     public bool IsPlayed(string name)
@@ -108,5 +108,29 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForSeconds(s1.source.clip.length);
         s1.source.Stop();
         s2.source.Play();
+    }
+
+    IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    IEnumerator FadeIn(AudioSource audioSource, float targetVolume , float Fadetime)
+    {
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += targetVolume * Time.deltaTime / Fadetime;
+            yield return null;
+        }
     }
 }
