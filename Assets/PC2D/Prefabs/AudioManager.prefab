@@ -62,7 +62,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fbd1bf58f56bff54a9ba8b1cfd6c37f4, type: 3}
     played: 0
     loop: 0
-    volume: 0.666
+    volume: 0.7
     pitch: 1
     source: {fileID: 0}
   - name: Jump
@@ -147,5 +147,12 @@ MonoBehaviour:
     played: 0
     loop: 1
     volume: 0.75
+    pitch: 1
+    source: {fileID: 0}
+  - name: FlowActivate
+    clip: {fileID: 8300000, guid: bdfbf33fedc3cdc47b0ddce13c3578c4, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}

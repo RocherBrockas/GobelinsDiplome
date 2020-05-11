@@ -65,6 +65,7 @@ public class FluxPoint : MonoBehaviour
         {
             if (PerceptionManager.instance.perception.perceptionType == perception)
             {
+                AudioManager.instance.Play("FlowActivate");
                 played = true;
                 idle.Stop();
                 idleBack.Stop();

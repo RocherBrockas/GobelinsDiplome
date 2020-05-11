@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -13,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance;
 
     public GameObject[] morceauMasque;
+
+    public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton;
 
     private void Awake()
     {
@@ -50,6 +53,14 @@ public class PauseMenu : MonoBehaviour
     {
         PauseMenuUI.SetActive(!toControl);
         controleUI.SetActive(toControl);
+        EventSystem.current.SetSelectedGameObject(null);
+        if (toControl)
+        {
+            EventSystem.current.SetSelectedGameObject(optionsFirstButton);
+        } else
+        {
+            EventSystem.current.SetSelectedGameObject(optionsClosedButton);
+        }
     }
 
     public void Resume()
@@ -65,6 +76,8 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
 
     public void LoadMenu()

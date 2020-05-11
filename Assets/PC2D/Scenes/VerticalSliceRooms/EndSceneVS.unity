@@ -407,6 +407,7 @@ MonoBehaviour:
   startposition: {fileID: 11400000, guid: f1100ddf2aa242946b49aad7d97c33b7, type: 2}
   LevelLoader: {fileID: 118942285}
   sceneToLoad: Debug Room
+  end: 1
 --- !u!1 &601890612
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 270.54, y: -188.66}
-  m_SizeDelta: {x: 83.59, y: 28.96}
+  m_SizeDelta: {x: 83.59, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &601890614
 MonoBehaviour:

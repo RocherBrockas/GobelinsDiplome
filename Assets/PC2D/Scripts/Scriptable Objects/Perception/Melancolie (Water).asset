@@ -30,8 +30,8 @@ MonoBehaviour:
   gravityMultiplier: 1.2
   fastFallSpeed: 32
   fastFallGravity: 3.35
-  jumpHeigth: 1.5
-  heldJumpHeigth: 0.5
+  jumpHeigth: 2
+  heldJumpHeigth: 0
   airJumpHeigth: 0.5
   numberOfAirJumps: 1
   enableWallJump: 0
