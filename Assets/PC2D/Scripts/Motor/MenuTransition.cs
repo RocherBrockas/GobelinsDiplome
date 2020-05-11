@@ -9,9 +9,11 @@ public class MenuTransition : MonoBehaviour
     public LoadPositions startposition;
     public LevelLoader LevelLoader;
     public string sceneToLoad;
+    public bool end;
 
     private void Start()
     {
+        if (!end)
         AudioManager.instance.Play("First theme");
     }
 

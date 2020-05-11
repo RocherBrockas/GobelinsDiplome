@@ -264,6 +264,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e7871855343b314e8811fae00900ac1, type: 3}
+--- !u!114 &118942285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170207962874600130, guid: 3e7871855343b314e8811fae00900ac1,
+    type: 3}
+  m_PrefabInstance: {fileID: 118942284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80eac31acc6504b86bf7a8a98d4a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &500898268
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +289,7 @@ GameObject:
   - component: {fileID: 500898271}
   - component: {fileID: 500898270}
   - component: {fileID: 500898269}
+  - component: {fileID: 500898274}
   m_Layer: 5
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -378,6 +391,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &500898274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500898268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95731d631719f544baaf1fcdeb376e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionStorage: {fileID: 11400000, guid: f1100ddf2aa242946b49aad7d97c33b7, type: 2}
+  startposition: {fileID: 11400000, guid: f1100ddf2aa242946b49aad7d97c33b7, type: 2}
+  LevelLoader: {fileID: 118942285}
+  sceneToLoad: Debug Room
 --- !u!1 &601890612
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 500898274}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

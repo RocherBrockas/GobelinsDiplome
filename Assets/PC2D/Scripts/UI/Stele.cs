@@ -45,17 +45,19 @@ public class Stele : MonoBehaviour
     {
         if (UnityEngine.Input.GetButtonDown(PC2D.Input.INTERACT))
         {
-            if(masque.played && _activeOnce )
+            if (masque != null)
             {
-                _activeOnce = false;
-                masque.FadeOut();
-                UnfreezeMotor();
-                //played = false;
+                if (masque.played && _activeOnce)
+                {
+                    _activeOnce = false;
+                    masque.FadeOut();
+                    UnfreezeMotor();
+                }
             }
         }
         if (motor.frozen && played && UnityEngine.Input.GetButtonDown(PC2D.Input.INTERACT))
         {
-            if (!masque.played || !displayingMask)
+            if ((masque ? !masque.played : true ) || !displayingMask)
                 RemoveUI();
             StartCoroutine(WaitRead());
             if (!tuto)
