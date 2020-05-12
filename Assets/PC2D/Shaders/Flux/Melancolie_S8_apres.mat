@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Melancolie 1
+  m_Name: Melancolie_S8_apres
   m_Shader: {fileID: -6465566751694194690, guid: d8449798863b21d46a73e74ac7ddc276,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _melText:
-        m_Texture: {fileID: 2800000, guid: 38ecca75a153af64f82a9c737db78f31, type: 3}
+        m_Texture: {fileID: 2800000, guid: 674382da194c5f04282c984532feebc2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -86,8 +86,8 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _melColor1: {r: 0.6072686, g: 0, b: 0.7682103, a: 0.69411767}
-    - _melColor2: {r: 0.04756525, g: 0, b: 0.2924528, a: 1}
+    - _melColor1: {r: 0.71780777, g: 0, b: 1.413415, a: 0.69411767}
+    - _melColor2: {r: 0.049580365, g: 0, b: 0.41594517, a: 1}
     - _melVitesse: {r: 0.05, g: 0.05, b: 0, a: 0}
 --- !u!114 &2897287600511038092
 MonoBehaviour:
