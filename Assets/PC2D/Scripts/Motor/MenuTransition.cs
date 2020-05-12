@@ -24,6 +24,16 @@ public class MenuTransition : MonoBehaviour
         LevelLoader.LoadNextLevel(sceneToLoad);
     }
 
+    public void toMenu()
+    {
+        LevelLoader.LoadNextLevel("Main Menu");
+    }
+
+    public void toCredits()
+    {
+        LevelLoader.LoadNextLevel("EndSceneVS");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

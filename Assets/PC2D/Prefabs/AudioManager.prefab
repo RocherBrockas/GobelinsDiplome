@@ -73,10 +73,10 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Totem
-    clip: {fileID: 8300000, guid: becf75f9abd36d94db02c5278d691b5f, type: 3}
+    clip: {fileID: 8300000, guid: 2ec5f4024d094f541a101d615409d001, type: 3}
     played: 0
     loop: 0
-    volume: 0.804
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - name: First theme
