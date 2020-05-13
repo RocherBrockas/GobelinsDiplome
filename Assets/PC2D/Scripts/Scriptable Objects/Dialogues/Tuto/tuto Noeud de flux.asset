@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: tuto Noeud de flux
   m_EditorClassIdentifier: 
   imageTop: {fileID: 21300000, guid: ca033c454da7a3a4287c28c35bea7290, type: 3}
-  phraseBottom: {fileID: 0}
+  phraseBottom: {fileID: 21300000, guid: 8ee994b2588c64d4e855501347d89525, type: 3}
   texte:
-  - Ceci est un noeud de Flux. Expirez dessus afin de reveiller le flux qui parcours
-    le monde.
+  - "Ces N\u0153uds poss\xE9daient autrefois une forte concentration de Flux d\u2019\xE9motion,
+    qu\u2018ils r\xE9pendaient autour d\u2019eux. "

@@ -8,51 +8,14 @@ public class ZoneCache : MonoBehaviour
     public GameObject toMaskInsideZone;
 
     private bool masked;
-    private SpriteRenderer[] _spriteMasquants;
-    private SpriteRenderer[] _spriteToMaskInsideZone;
+    private Animator anim;
 
-    //OSEF ON FERA DES ANIMS
 
     private void Start()
     {
         
         masked = false;
-        _spriteMasquants = masquant.GetComponentsInChildren<SpriteRenderer>();
-        _spriteToMaskInsideZone = toMaskInsideZone.GetComponentsInChildren<SpriteRenderer>();
-        StartCoroutine(FadeIn(_spriteToMaskInsideZone));
-        StartCoroutine(FadeOut(_spriteMasquants));
-    }
-
-    IEnumerator FadeIn( SpriteRenderer[] sprites)
-    {
-        Debug.Log("oui");
-        foreach (SpriteRenderer s in sprites)
-        {
-            for(float f = 0.05f; f <= 1; f += 0.05f)
-            {
-
-                Color c = s.material.color;
-                c.a = f;
-                s.material.color = c;
-                yield return new WaitForSeconds(0.05f);
-            }
-        }
-    }
-
-    IEnumerator FadeOut(SpriteRenderer[] sprites)
-    {
-        Debug.Log("non");
-        foreach (SpriteRenderer s in sprites)
-        {
-            for (float f = 0.05f; f <= 1; f += 0.05f)
-            {
-
-                Color c = s.material.color;
-                c.a = 1-f;
-                s.material.color = c;
-                yield return new WaitForSeconds(0.05f);
-            }
-        }
+        anim = this.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,8 +24,7 @@ public class ZoneCache : MonoBehaviour
         {
             Debug.Log("collide");
             masked = true;
-            StartCoroutine(FadeIn(_spriteToMaskInsideZone));
-            StartCoroutine(FadeOut(_spriteMasquants));
+            anim.SetTrigger("Switch");
         }
     }
 
@@ -72,8 +34,7 @@ public class ZoneCache : MonoBehaviour
         {
             Debug.Log("exit");
             masked = false;
-            StartCoroutine(FadeIn(_spriteMasquants));
-            StartCoroutine(FadeOut(_spriteToMaskInsideZone));
+            anim.SetTrigger("Switch");
         }
     }
 
@@ -84,8 +45,7 @@ public class ZoneCache : MonoBehaviour
             if (!masked)
             {
                 Debug.Log("stay");
-                StartCoroutine(FadeIn(_spriteToMaskInsideZone));
-                StartCoroutine(FadeOut(_spriteMasquants));
+                anim.SetTrigger("Switch");
             }
             masked = true;
         }
