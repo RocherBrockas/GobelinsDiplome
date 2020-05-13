@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: BackGround Theme
-    clip: {fileID: 8300000, guid: 31fcdec4ccf4ab34dab27960fa94364a, type: 3}
+    clip: {fileID: 8300000, guid: 4ca02d28d9b4ab649a48d11ea21ee949, type: 3}
     played: 0
     loop: 1
-    volume: 0
+    volume: 0.101
     pitch: 1
     source: {fileID: 0}
   - name: bubble enter
@@ -59,18 +59,18 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Expiration
-    clip: {fileID: 8300000, guid: fbd1bf58f56bff54a9ba8b1cfd6c37f4, type: 3}
+    clip: {fileID: 8300000, guid: 239d2880c297be848bb0305da567cdb0, type: 3}
     played: 0
     loop: 0
-    volume: 0.7
+    volume: 0.609
     pitch: 1
     source: {fileID: 0}
   - name: Jump
-    clip: {fileID: 8300000, guid: 5c5e5dbdc83669e43a244d5ad45eac33, type: 3}
+    clip: {fileID: 8300000, guid: e1afa117d5f5eff4fadfbbffc86c4dc3, type: 3}
     played: 0
     loop: 0
-    volume: 0.701
-    pitch: 1
+    volume: 0.193
+    pitch: 1.53
     source: {fileID: 0}
   - name: Totem
     clip: {fileID: 8300000, guid: 2ec5f4024d094f541a101d615409d001, type: 3}
@@ -153,6 +153,132 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bdfbf33fedc3cdc47b0ddce13c3578c4, type: 3}
     played: 0
     loop: 0
-    volume: 0.5
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: Inspiration
+    clip: {fileID: 8300000, guid: b454f148079dada4c94cc3a2009d5776, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.577
+    pitch: 1
+    source: {fileID: 0}
+  - name: cbSleep
+    clip: {fileID: 8300000, guid: c54517a3c031d6545a91ea58d8e28787, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: cbSleep2
+    clip: {fileID: 8300000, guid: 143f159775a3e3749a06e2e930ca5e39, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: cfluxActive
+    clip: {fileID: 8300000, guid: b30cde8c47efb154cb1a64f77ec23f70, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: wakeup
+    clip: {fileID: 8300000, guid: cbf6c9c929d2ce240a1889c13ba0dbda, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: spew
+    clip: {fileID: 8300000, guid: 4502a0ab7f955ac49b31d0c4e1bb21f0, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: cFluxIdle
+    clip: {fileID: 8300000, guid: 6855208776867bc4fbe7a5c9eddd68bc, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: temple Open
+    clip: {fileID: 8300000, guid: 1b55c16b02fb3844a81ea62776278235, type: 3}
+    played: 0
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: temple Inside
+    clip: {fileID: 8300000, guid: 8ec4c712884834c4189e7caec856e5d7, type: 3}
+    played: 0
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: lootMask
+    clip: {fileID: 8300000, guid: f7e2812eb3424db4187ccbfdf603f23c, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: bounce
+    clip: {fileID: 8300000, guid: 9f6dec13cecb4df4e98110ef6562654f, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.348
+    pitch: 1
+    source: {fileID: 0}
+  - name: break
+    clip: {fileID: 8300000, guid: afda5264ec9c3864fbad08fd5ec0ce86, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: land
+    clip: {fileID: 8300000, guid: 16a6cdd16c6095e489e7aa58d045674f, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: Menu OPen
+    clip: {fileID: 8300000, guid: 8e24529421300bd488577b8efc28fb85, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.444
+    pitch: 1
+    source: {fileID: 0}
+  - name: Menu close
+    clip: {fileID: 8300000, guid: f2f04f1e158599447adc390ed5dc30e4, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.352
+    pitch: 1
+    source: {fileID: 0}
+  - name: Menu choose
+    clip: {fileID: 8300000, guid: f6b77b93d0fe0f44f966b499cff67e2f, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.352
+    pitch: 1
+    source: {fileID: 0}
+  - name: CharLand
+    clip: {fileID: 8300000, guid: 9f6dec13cecb4df4e98110ef6562654f, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.352
+    pitch: 1
+    source: {fileID: 0}
+  - name: Maskpickup
+    clip: {fileID: 8300000, guid: f7e2812eb3424db4187ccbfdf603f23c, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.352
     pitch: 1
     source: {fileID: 0}

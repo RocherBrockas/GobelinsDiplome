@@ -152,7 +152,7 @@ public class PlayerController2D : MonoBehaviour
             _motor.fallFast = false;
         }
 
-        if (Input.GetButtonDown(PC2D.Input.POOF))
+        if (Input.GetButtonDown(PC2D.Input.POOF)  && !_motor.frozen)
         {
             if (_canInspire)
             {
@@ -165,7 +165,7 @@ public class PlayerController2D : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown(PC2D.Input.INSPIRE))
+        if (Input.GetButtonDown(PC2D.Input.INSPIRE) && !_motor.frozen)
         {
             if (_canInspire)
             {
@@ -205,6 +205,10 @@ public class PlayerController2D : MonoBehaviour
                     {
                         perceptionManager.perception = collision.gameObject.GetComponent<PerceptionZone>().perception;
                         _motor.AbilityChange(perceptionManager.perception);
+                        if (collision.gameObject.GetComponent<PerceptionZone>().CoupeFlux)
+                        {
+                            AudioManager.instance.Play("cfluxActive");
+                        }
                     }
                 }
             }
@@ -236,6 +240,7 @@ public class PlayerController2D : MonoBehaviour
     {
         _canInspire = false;
         expireRange.GetComponent<PoofRange>().AnimatePoof();
+        AudioManager.instance.Play("Expiration");
         yield return new WaitForSeconds(perceptionManager.perception.expireCooldown);
         expireRange.SetActive(false);
         expireRange.transform.position = this.transform.position;
@@ -248,11 +253,10 @@ public class PlayerController2D : MonoBehaviour
     IEnumerator InspireCooldown()
     {
         _canInspire = false;
-        inspireRange.GetComponent<inspireCollisionTrigger>().ps.Play();
-        yield return new WaitForSeconds(perceptionManager.perception.inspireCooldown);
-        inspireRange.SetActive(false);
         if (inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception)
         {
+            inspireRange.GetComponent<inspireCollisionTrigger>().ps.Play();
+            AudioManager.instance.Play("Inspiration");
             if (inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception != null && (perceptionManager.perception != inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception))
             {
                 perceptionManager.perception = inspireRange.GetComponent<inspireCollisionTrigger>().feltPerception;
@@ -260,6 +264,8 @@ public class PlayerController2D : MonoBehaviour
                 inspireRange.GetComponent<inspireCollisionTrigger>().detectedPerception = false;
             }
         }
+        yield return new WaitForSeconds(perceptionManager.perception.inspireCooldown);
+        inspireRange.SetActive(false);
         _canInspire = true;
     }
 

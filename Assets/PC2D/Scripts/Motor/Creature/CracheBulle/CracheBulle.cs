@@ -16,6 +16,7 @@ public class CracheBulle : MonoBehaviour
     public GameObject bulle;
     public SpriteRenderer sprite;
     public FluxMemory trigger;
+    public bool playSounds;
 
     public PlayerController2D playerController;
 
@@ -52,6 +53,8 @@ public class CracheBulle : MonoBehaviour
                 //Debug.Log(currentBulle.transform.position);
                 currentBulle.GetComponent<Bulle>().isDestroyable = true;
                 sprite.flipX = faceleft;
+                if (playSounds)
+                AudioManager.instance.Play("spew");
                 currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
                 currentBulle.transform.localScale = currentBulle.transform.localScale * _randomSizeModifier;
                 currentBulle.GetComponent<Bulle>().lifespan = bulleSpawnTiming + bonusLifeSpan;
@@ -72,9 +75,13 @@ public class CracheBulle : MonoBehaviour
             if (collisionMask == (collisionMask| (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
             {
                 Debug.Log("Activate crache bulle");
+                if(playSounds)
+                AudioManager.instance.Play("cbwakeup2");
                 isActive = true;
             } else
             {
+                if (playSounds)
+                AudioManager.instance.Play("cbwakeup1");
                 Debug.Log("smthing collided crache bulle");
             }
         }
@@ -86,7 +93,13 @@ public class CracheBulle : MonoBehaviour
         {
             if (collisionMask == (collisionMask | (1 << collision.gameObject.layer)) && PerceptionManager.instance.perception.perceptionType == AwakenPerception)
             {
-                isActive = trigger.active;
+                if (trigger != null)
+                {
+                    isActive = trigger.active;
+                    if (!trigger.active)
+                        AudioManager.instance.Play("cbSleep");
+                }
+
             }
             else
             {

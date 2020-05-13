@@ -13,7 +13,7 @@ public class MenuTransition : MonoBehaviour
 
     private void Start()
     {
-        if (!end)
+        if (!end || AudioManager.instance.IsPlayed("First theme"))
         AudioManager.instance.Play("First theme");
     }
 
@@ -22,6 +22,7 @@ public class MenuTransition : MonoBehaviour
         positionStorage.initialValue = startposition.initialValue;
         positionStorage.perception = startposition.perception;
         LevelLoader.LoadNextLevel(sceneToLoad);
+        AudioManager.instance.Play("BackGround Theme");
     }
 
     public void toMenu()

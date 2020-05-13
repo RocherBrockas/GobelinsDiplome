@@ -16,6 +16,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     public bool isBubble;
     private PerceptionTypes currentPoofPerception = PerceptionTypes.None;
     private new Rigidbody2D rigidbody;
+    public LayerMask groundMask;
 
     public void Start()
     {
@@ -34,6 +35,14 @@ public class SimpleRigidBodyHandle : MonoBehaviour
         originPosition = GetComponent<Transform>().position;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if( isFallingPlatform && groundMask == (groundMask| (1 << collision.gameObject.layer)))
+        {
+            AudioManager.instance.Play("land");
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PoofRange>() != null)
@@ -45,6 +54,10 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                 {
                     rigidbody.bodyType = RigidbodyType2D.Dynamic;
                     rigidbody.mass = mass;
+                    if (isFallingPlatform)
+                    {
+                        AudioManager.instance.Play("break");
+                    }
                     if (GetComponent<MovingPlatformMotor2D>() != null)
                     {
                         GetComponent<MovingPlatformMotor2D>().enabled = false;

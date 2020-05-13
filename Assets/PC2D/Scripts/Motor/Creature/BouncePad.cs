@@ -11,6 +11,7 @@ public class BouncePad : MonoBehaviour
         string layerName = LayerMask.LayerToName(collision.gameObject.layer);
         if (playerMask == (playerMask| (1 << collision.gameObject.layer)))
         {
+            AudioManager.instance.Play("bounce");
             collision.gameObject.GetComponent<PlatformerMotor2D>().ForceJump();
         }
     }

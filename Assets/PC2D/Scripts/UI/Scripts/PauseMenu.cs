@@ -42,15 +42,18 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
-            } else
+            }
+            else
             {
                 Pause();
+                AudioManager.instance.Play("Menu OPen");
             }
         }
     }
 
     public void switchMenu( bool toControl)
     {
+        AudioManager.instance.Play("Menu choose");
         PauseMenuUI.SetActive(!toControl);
         controleUI.SetActive(toControl);
         EventSystem.current.SetSelectedGameObject(null);
@@ -65,6 +68,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.instance.Play("Menu close");
         PauseMenuUI.SetActive(false);
         controleUI.SetActive(false);
         Time.timeScale = 1f;
@@ -82,6 +86,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        AudioManager.instance.Play("Menu choose");
         //add confirmation
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
@@ -91,6 +96,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        AudioManager.instance.Play("Menu choose");
         //add confirmation 
         Application.Quit();
     }

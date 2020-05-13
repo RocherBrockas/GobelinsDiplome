@@ -100,9 +100,12 @@ MonoBehaviour:
   bulleSpawnTiming: 360
   bonusLifeSpan: 240
   randomStrengthVariation: 20
+  randomSizeVariation: 0
   AwakenPerception: 1
   bulle: {fileID: 0}
   sprite: {fileID: 3041606444739359682}
+  trigger: {fileID: 0}
+  playSounds: 1
   playerController: {fileID: 0}
   isActive: 0
   collisionMask:

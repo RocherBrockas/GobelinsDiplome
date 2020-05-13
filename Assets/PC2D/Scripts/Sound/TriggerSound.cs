@@ -9,7 +9,7 @@ public class TriggerSound : MonoBehaviour
     public bool played;
 
 
-    private const float volume = 0.750f;
+    private const float volume = 1f;
     private void Start()
     {
         played = AudioManager.instance.IsPlayed(musicToPlay);

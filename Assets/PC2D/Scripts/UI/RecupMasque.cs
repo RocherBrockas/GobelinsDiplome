@@ -27,6 +27,7 @@ public class RecupMasque : MonoBehaviour
         menu.morceauMasque[index].SetActive(true);
         played = true;
         this.gameObject.SetActive(false);
+        AudioManager.instance.Play("Maskpickup");
         animUI.SetTrigger("Start");
     }
 

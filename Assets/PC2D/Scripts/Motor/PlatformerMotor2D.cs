@@ -1571,10 +1571,10 @@ public class PlatformerMotor2D : MonoBehaviour
         {
             if (IsFalling() || IsFallingFast())
             {
+                AudioManager.instance.Play("CharLand");
                 _platformerAnimation2D.LandingPoof.Play();
                 if (onLanded != null)
                 {
-                    AudioManager.instance.Play("Jump");
                     //Check to not make the character land when touching the ground with negative falling speed (water)
                     if (fallSpeed < 0f)
                     {
@@ -3491,6 +3491,7 @@ public class PlatformerMotor2D : MonoBehaviour
             if (onJump != null)
             {
                 onJump();
+                AudioManager.instance.Play("Jump");
             }
         }
         if (IsDashing())
