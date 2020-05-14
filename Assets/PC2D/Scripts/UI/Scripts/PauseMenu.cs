@@ -7,13 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
 
     public GameObject controleUI;
-    public static PauseMenu instance;
+
 
     public GameObject[] morceauMasque;
+    public bool[] activeTab = new bool[3];
 
     public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton;
 

@@ -25,7 +25,6 @@ public class spriteshapemodifier : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(shape.spline.GetLeftTangent(index));
         shape.spline.SetPosition( index, (this.transform.position - shape.gameObject.transform.position)*parallaxEffect);
         shape.spline.SetHeight(index, startingHeigth);
         if (startingHeigth < 0.40f)

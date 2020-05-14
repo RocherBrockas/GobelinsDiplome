@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RecupMasque : MonoBehaviour
 {
-    public PauseMenu menu;
+    //public PauseMenu menu;
     public int index;
     public bool played;
     public Animator animUI;
@@ -12,9 +12,7 @@ public class RecupMasque : MonoBehaviour
     private void Start()
     {
         played = false;
-        menu = FindObjectOfType<PauseMenu>();
-        Debug.Log(menu.morceauMasque[index].activeSelf);
-        if (menu.morceauMasque[index].activeSelf)
+        if (PauseMenu.instance.morceauMasque[index].activeSelf)
         {
             played = true;
             this.gameObject.SetActive(false);
@@ -24,7 +22,9 @@ public class RecupMasque : MonoBehaviour
 
     public void FadeIn()
     {
-        menu.morceauMasque[index].SetActive(true);
+        
+        PauseMenu.instance.morceauMasque[index].SetActive(true);
+        PauseMenu.instance.activeTab[index] = true;
         played = true;
         this.gameObject.SetActive(false);
         AudioManager.instance.Play("Maskpickup");

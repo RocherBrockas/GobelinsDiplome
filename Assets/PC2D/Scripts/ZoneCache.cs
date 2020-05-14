@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class ZoneCache : MonoBehaviour
 {
-    public GameObject masquant;
-    public GameObject toMaskInsideZone;
-
     private bool masked;
     private Animator anim;
 
 
     private void Start()
     {
-        
         masked = false;
         anim = this.GetComponent<Animator>();
     }
