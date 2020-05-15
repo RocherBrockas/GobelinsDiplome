@@ -17,6 +17,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     private PerceptionTypes currentPoofPerception = PerceptionTypes.None;
     private new Rigidbody2D rigidbody;
     public LayerMask groundMask;
+    public bool playAudio =true;
 
     public void Start()
     {
@@ -54,7 +55,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                 {
                     rigidbody.bodyType = RigidbodyType2D.Dynamic;
                     rigidbody.mass = mass;
-                    if (isFallingPlatform)
+                    if (isFallingPlatform && playAudio)
                     {
                         AudioManager.instance.Play("break");
                     }

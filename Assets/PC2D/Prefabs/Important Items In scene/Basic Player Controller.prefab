@@ -265,7 +265,7 @@ MonoBehaviour:
   - {x: -0.90628445, y: 1.0298271, z: 0}
   m_ShapePathHash: -1137119753
   m_Mesh: {fileID: 0}
-  m_InstanceId: 38996
+  m_InstanceId: 254086
 --- !u!1 &173962
 GameObject:
   m_ObjectHideFlags: 0
@@ -9965,9 +9965,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1459570461
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -10575,6 +10575,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8559849613800868384}
     m_Modifications:
+    - target: {fileID: 425333309560684925, guid: ac1a6747ced98c84fb016e6827f22f7c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1459570461
+      objectReference: {fileID: 0}
+    - target: {fileID: 425333309560684925, guid: ac1a6747ced98c84fb016e6827f22f7c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 425333309560684925, guid: ac1a6747ced98c84fb016e6827f22f7c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1170365842889084922, guid: ac1a6747ced98c84fb016e6827f22f7c,
         type: 3}
       propertyPath: m_LocalPosition.x
