@@ -18,6 +18,9 @@ public class OpenDoor : MonoBehaviour
             container.SetActive(true);
             if (!fm.active)
             {
+                AudioManager.instance.Play("temple Open");
+                AudioManager.instance.Play("temple Inside");
+                AudioManager.instance.SetVolume("temple Inside", 0.65f, 2.5f);
                 anim.SetTrigger("Mask");
             } else
             {

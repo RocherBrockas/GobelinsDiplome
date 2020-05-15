@@ -215,8 +215,8 @@ MonoBehaviour:
   - name: temple Inside
     clip: {fileID: 8300000, guid: 8ec4c712884834c4189e7caec856e5d7, type: 3}
     played: 0
-    loop: 0
-    volume: 1
+    loop: 1
+    volume: 0.402
     pitch: 1
     source: {fileID: 0}
   - name: lootMask

@@ -10,6 +10,7 @@ public class MenuTransition : MonoBehaviour
     public LevelLoader LevelLoader;
     public string sceneToLoad;
     public bool end;
+    public FluxMemory[] triggers;
 
     private void Start()
     {
@@ -19,10 +20,25 @@ public class MenuTransition : MonoBehaviour
 
     public void StartGame()
     {
+        foreach(FluxMemory f in triggers)
+        {
+            f.active = false;
+        }
         positionStorage.initialValue = startposition.initialValue;
         positionStorage.perception = startposition.perception;
         LevelLoader.LoadNextLevel(sceneToLoad);
         AudioManager.instance.Play("BackGround Theme");
+        if (PauseMenu.instance)
+        {
+            for(int i = 0; i < PauseMenu.instance.activeTab.Length; ++i)
+            {
+                PauseMenu.instance.activeTab[i] = false;
+            }
+            foreach(GameObject g in PauseMenu.instance.morceauMasque)
+            {
+                g.SetActive(false);
+            }
+        }
     }
 
     public void toMenu()
