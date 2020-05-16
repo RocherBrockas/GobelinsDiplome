@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PC2D/Scenes/Debug and UI/Main Menu.unity
+    path: Assets/PC2D/FX/Debug and UI/Main Menu.unity
     guid: fd3ae15ecf53c4640ba27f62f543b1c3
   - enabled: 0
-    path: Assets/PC2D/Scenes/Debug and UI/Debug Room.unity
+    path: Assets/PC2D/FX/Debug and UI/Debug Room.unity
     guid: ccb102e7f25a18c44bc030ec61260e88
   - enabled: 1
     path: "Assets/PC2D/Scenes/VerticalSliceRooms/Grotte D\xE9but.unity"

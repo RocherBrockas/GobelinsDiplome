@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player Position
   m_EditorClassIdentifier: 
   initialValue: {x: 0, y: 0}
-  perception: {fileID: 11400000, guid: ce0c586550e0a53478c15f99c33361b6, type: 2}
+  perception: {fileID: 11400000, guid: 2c20d492694f7e24ebac977c23ff9fe9, type: 2}
