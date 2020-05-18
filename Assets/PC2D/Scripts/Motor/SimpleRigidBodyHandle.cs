@@ -18,6 +18,7 @@ public class SimpleRigidBodyHandle : MonoBehaviour
     private new Rigidbody2D rigidbody;
     public LayerMask groundMask;
     public bool playAudio =true;
+    public ParticleSystem dust;
 
     public void Start()
     {
@@ -58,6 +59,10 @@ public class SimpleRigidBodyHandle : MonoBehaviour
                     if (isFallingPlatform && playAudio)
                     {
                         AudioManager.instance.Play("break");
+                        if(dust != null)
+                        {
+                            dust.Stop();
+                        }
                     }
                     if (GetComponent<MovingPlatformMotor2D>() != null)
                     {

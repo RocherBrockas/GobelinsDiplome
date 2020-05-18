@@ -9,4 +9,25 @@ public class PerceptionZone : MonoBehaviour
     public bool canBeInspired;
     public bool needCollidingChange;
     public bool CoupeFlux;
+
+    private ParticleSystem fx;
+
+    private void Start()
+    {
+        if (fx == null && CoupeFlux)
+        {
+            fx = this.GetComponentInChildren<ParticleSystem>();
+        }
+    }
+
+    public void PlayFx()
+    {
+        if (fx != null)
+        {
+            fx.Play();
+        } else
+        {
+            Debug.Log("No Fx on this component");
+        }
+    }
 }

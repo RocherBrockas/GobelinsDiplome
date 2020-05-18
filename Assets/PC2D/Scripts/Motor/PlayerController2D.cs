@@ -208,6 +208,7 @@ public class PlayerController2D : MonoBehaviour
                         if (collision.gameObject.GetComponent<PerceptionZone>().CoupeFlux)
                         {
                             AudioManager.instance.Play("cfluxActive");
+                            collision.gameObject.GetComponent<PerceptionZone>().PlayFx();
                         }
                     }
                 }

@@ -26,6 +26,8 @@ public class Boid : MonoBehaviour
 
     public bool drawGizmos = true;
     public bool drawLines = true;
+    private bool _lookleft = true;
+    private bool _flipsprite = true;
 
     // Update is called once per frame
     void Update()
@@ -141,7 +143,14 @@ public class Boid : MonoBehaviour
 
 
         //On regarde dans la bonne direction        
-        if (velocity.sqrMagnitude > 0)
+        if (velocity.x > 0f)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+        }else
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+        }
+            
 //            transform.LookAt(transform.position + velocity);
 
         //Debug

@@ -14,7 +14,6 @@ public class CracheBulle : MonoBehaviour
     public float randomSizeVariation;
     public PerceptionTypes AwakenPerception;
     public GameObject bulle;
-    public SpriteRenderer sprite;
     public FluxMemory trigger;
     public bool playSounds;
 
@@ -27,6 +26,7 @@ public class CracheBulle : MonoBehaviour
     public LayerMask collisionMask;
     private float _internTiming;
     private Vector2 _force;
+    private Animator anim;
 
 
     private void Start()
@@ -36,6 +36,7 @@ public class CracheBulle : MonoBehaviour
         {
             isActive = trigger.active;
         }
+        anim = GetComponentInChildren<Animator>();
         _force = new Vector2(bulleLaunchStrength, 0);
     }
 
@@ -52,7 +53,6 @@ public class CracheBulle : MonoBehaviour
                 currentBulle.transform.position = this.transform.position;
                 //Debug.Log(currentBulle.transform.position);
                 currentBulle.GetComponent<Bulle>().isDestroyable = true;
-                sprite.flipX = faceleft;
                 if (playSounds)
                 AudioManager.instance.Play("spew");
                 currentBulle.GetComponent<Bulle>().forceLancement = (bulleLaunchStrength + _randomStrengthModifier) * (faceleft ? -1 : 1);
@@ -77,11 +77,12 @@ public class CracheBulle : MonoBehaviour
                 Debug.Log("Activate crache bulle");
                 if(playSounds)
                 AudioManager.instance.Play("cbwakeup2");
+                anim.SetTrigger("Switch");
                 isActive = true;
             } else
             {
                 if (playSounds)
-                AudioManager.instance.Play("cbwakeup1");
+                AudioManager.instance.Play("cbwakeup");
                 Debug.Log("smthing collided crache bulle");
             }
         }
@@ -97,7 +98,10 @@ public class CracheBulle : MonoBehaviour
                 {
                     isActive = trigger.active;
                     if (!trigger.active)
+                    {
                         AudioManager.instance.Play("cbSleep");
+                        anim.SetTrigger("Switch");
+                    }
                 }
 
             }

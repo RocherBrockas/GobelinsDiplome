@@ -184,7 +184,14 @@ MonoBehaviour:
     volume: 0.599
     pitch: 1
     source: {fileID: 0}
-  - name: wakeup
+  - name: cbwakeup
+    clip: {fileID: 8300000, guid: cbf6c9c929d2ce240a1889c13ba0dbda, type: 3}
+    played: 0
+    loop: 0
+    volume: 0.599
+    pitch: 1
+    source: {fileID: 0}
+  - name: cbwakeup2
     clip: {fileID: 8300000, guid: cbf6c9c929d2ce240a1889c13ba0dbda, type: 3}
     played: 0
     loop: 0

@@ -26,6 +26,9 @@ public class BoidManager : MonoBehaviour
     public float maxDistBoids = 30;
     public float hauteurSol = 0;
 
+    public Transform[] targets;
+    private int currentTarget = 0;
+
     public float periodRetargetBoids = 6;
     public float periodNoTargetBoids = 3;
     public float periodLandedBoids = 6;
@@ -62,11 +65,13 @@ public class BoidManager : MonoBehaviour
 
     void Update()
     {
-
         timerRetargetBoids -= Time.deltaTime;
         if (timerRetargetBoids <= 0)
         {
-            Vector3 target = Random.insideUnitCircle * maxDistBoids;
+            currentTarget = Mathf.FloorToInt(Random.Range(0, targets.Length));
+            Debug.Log(currentTarget);
+            Vector3 target = targets[currentTarget].position;
+            Debug.DrawLine(transform.position, target);
             target.Set(target.x, target.y, 0);
             target.y = Mathf.Max(Mathf.Abs(target.y), 10);
 
