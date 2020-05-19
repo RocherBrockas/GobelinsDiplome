@@ -100,7 +100,8 @@ public class CracheBulle : MonoBehaviour
                     if (!trigger.active)
                     {
                         AudioManager.instance.Play("cbSleep");
-                        anim.SetTrigger("Switch");
+                        anim.SetTrigger("Fade");
+                        GetComponentInChildren<ParticleSystem>().Stop();
                     }
                 }
 

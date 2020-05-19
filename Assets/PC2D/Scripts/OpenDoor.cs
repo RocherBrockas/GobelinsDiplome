@@ -5,17 +5,21 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     private bool maskOk;
+    public GameObject Door;
     public GameObject container;
     public FluxMemory fm;
+    public GameObject fx;
 
     private Animator anim;
 
     private void Start()
     {
+        Door.SetActive(false);
         anim = container.GetComponent<Animator>();
         if (PauseMenu.instance.activeTab[0] && PauseMenu.instance.activeTab[1] && PauseMenu.instance.activeTab[2])
         {
             container.SetActive(true);
+            Door.SetActive(true);
             if (!fm.active)
             {
                 AudioManager.instance.Play("temple Open");
@@ -24,6 +28,7 @@ public class OpenDoor : MonoBehaviour
                 anim.SetTrigger("Mask");
             } else
             {
+                fx.SetActive(false);
                 anim.SetTrigger("Played");
             }
 
