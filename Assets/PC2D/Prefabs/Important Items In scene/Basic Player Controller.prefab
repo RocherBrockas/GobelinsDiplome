@@ -265,7 +265,7 @@ MonoBehaviour:
   - {x: -0.90628445, y: 1.0298271, z: 0}
   m_ShapePathHash: -1137119753
   m_Mesh: {fileID: 0}
-  m_InstanceId: -506076
+  m_InstanceId: 114386
 --- !u!1 &173962
 GameObject:
   m_ObjectHideFlags: 0
@@ -6540,7 +6540,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.46207282, g: 0.33343717, b: 0.5566038, a: 1}
+        key0: {r: 0.18770024, g: 0.30704302, b: 0.6981132, a: 1}
         key1: {r: 0.69803923, g: 0.8352942, b: 0.8431373, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}

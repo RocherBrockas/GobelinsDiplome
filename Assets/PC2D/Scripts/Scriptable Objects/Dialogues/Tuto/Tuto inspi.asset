@@ -16,4 +16,4 @@ MonoBehaviour:
   phraseBottom: {fileID: 21300000, guid: 5136d0525727b2a40a8dfd5ba09bc26a, type: 3}
   texte:
   - "Le  flux qui parcours le monde contient l'essence des \xE9motions. \n\nPour
-    vous impr\xE9gner de la m\xE9lancolie, inpirez au contact du flux avec"
+    vous impr\xE9gner de la m\xE9lancolie, \ninpirez au contact du flux avec"
