@@ -44,6 +44,7 @@ public class MenuTransition : MonoBehaviour
     public void toMenu()
     {
         LevelLoader.LoadNextLevel("Main Menu");
+        AudioManager.instance.Stop("FinalLoop");
     }
 
     public void toCredits()
