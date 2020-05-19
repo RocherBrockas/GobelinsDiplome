@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6789cacf67b2bb0419571f37ba74340a, type: 3}
   m_Name: tuto Noeud de flux
   m_EditorClassIdentifier: 
-  imageTop: {fileID: 21300000, guid: ca033c454da7a3a4287c28c35bea7290, type: 3}
+  imageTop: {fileID: 21300000, guid: f4232f58a23576f4694f662c592be7fe, type: 3}
   phraseBottom: {fileID: 21300000, guid: 8ee994b2588c64d4e855501347d89525, type: 3}
   texte:
   - "Ces N\u0153uds poss\xE9daient autrefois une forte concentration de Flux d\u2019\xE9motion,
-    qu\u2018ils r\xE9pendaient autour d\u2019eux. "
+    qu\u2018ils r\xE9pendaient autour d\u2019eux. \n\nExpirez pr\xE8s d'un N\u0153ud
+    pour le r\xE9activer."
